@@ -39,4 +39,13 @@ Partial Public Class Login1
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btn_Login As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lbl_Validate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_Validate As Global.DevExpress.Web.ASPxEditors.ASPxLabel
 End Class

@@ -12,4 +12,13 @@ Option Explicit On
 
 
 Partial Public Class ShowDeposit
+
+    '''<summary>
+    '''ASPxGridView1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ASPxGridView1 As Global.DevExpress.Web.ASPxGridView.ASPxGridView
 End Class

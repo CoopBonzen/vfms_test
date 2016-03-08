@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Login1.aspx.vb" Inherits="VFMS_test2.Login1" %>
 
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -208,6 +210,7 @@
             <asp:TextBox ID="User_tb" runat="server" placeholder="Username" class="tbuser"></asp:TextBox><br>
             <asp:TextBox ID="Password_tb" runat="server" placeholder="Password" class="tbpassword"></asp:TextBox><br>
             <asp:Button ID="btn_Login" runat="server" class="btn" onserverclick="Login_Click" Text="Login"></asp:Button>
+            <dx:ASPxLabel ID="lbl_Validate" runat="server" Text="" ForeColor="Red"></dx:ASPxLabel>
         </div>
     </form>
     <%--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>--%>

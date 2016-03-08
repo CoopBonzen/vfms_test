@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="vfms_db" Class="vfmsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=(local)\MSSQLSERVER_R2;Initial Catalog=vfms_db;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="vfms_dbConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(local)\MSSQLSERVER_R2;Initial Catalog=vfms_db;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="vfms_dbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.member" Member="members">
+    <Type Name="member">
+      <Column Name="mem_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="mem_name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="mem_address" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="mem_id_card" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mem_reg_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="mem_runningNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.[user]" Member="users">
     <Type Name="user">
       <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />

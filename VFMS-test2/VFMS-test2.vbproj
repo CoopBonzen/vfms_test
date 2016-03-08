@@ -40,6 +40,9 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxThemes.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
@@ -188,8 +191,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="css\style.css" />
-    <Content Include="Deposit1.aspx" />
-    <Content Include="ShowDeposit.aspx" />
+    <Content Include="Deposit.aspx" />
     <Content Include="dist\css\AdminLTE.css" />
     <Content Include="dist\css\AdminLTE.min.css" />
     <Content Include="dist\css\skins\skin-black-light.css" />
@@ -252,7 +254,7 @@
     <Content Include="dist\js\demo.js" />
     <Content Include="dist\js\pages\dashboard.js" />
     <Content Include="dist\js\pages\dashboard2.js" />
-    <Content Include="Dividend.aspx" />
+    <Content Include="Dividend1.aspx" />
     <Content Include="Dividend\ShowDividend.aspx" />
     <Content Include="documentation\build\include\adminlte-options.html" />
     <Content Include="documentation\build\include\advice.html" />
@@ -273,6 +275,10 @@
     <Content Include="documentation\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Home.aspx" />
+    <Content Include="images\cancel.gif" />
+    <Content Include="images\disk.png" />
+    <Content Include="images\edit.png" />
+    <Content Include="images\trash.gif" />
     <Content Include="images\wallpapers_login.jpg" />
     <Content Include="images\w_login.jpg" />
     <Content Include="js\bootstrap.js" />
@@ -284,15 +290,16 @@
     <Content Include="AllLoan1.aspx" />
     <Content Include="PaymentLoan1.aspx" />
     <Content Include="ShowLoan1.aspx" />
-    <Content Include="AddLoan2.aspx" />
-    <Content Include="AllLoan2.aspx" />
-    <Content Include="PaymentLoan2.aspx" />
-    <Content Include="ShowLoan2.aspx" />
+    <Content Include="Loan2\AddLoan2.aspx" />
+    <Content Include="Loan2\AllLoan2.aspx" />
+    <Content Include="Loan2\PaymentLoan2.aspx" />
+    <Content Include="Loan2\ShowLoan2.aspx" />
     <Content Include="Login-test.aspx" />
     <Content Include="Login1.aspx" />
-    <Content Include="ManageUser.aspx" />
-    <Content Include="ManageUserGroup.aspx" />
+    <Content Include="Manage\ManageUser.aspx" />
+    <Content Include="Manage\ManageUserGroup.aspx" />
     <Content Include="AddMember.aspx" />
+    <Content Include="ShowDeposit.aspx" />
     <Content Include="ShowMember.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1278,25 +1285,18 @@
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Deposit1.aspx.designer.vb">
-      <DependentUpon>Deposit1.aspx</DependentUpon>
+    <Compile Include="Deposit.aspx.designer.vb">
+      <DependentUpon>Deposit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Deposit1.aspx.vb">
-      <DependentUpon>Deposit1.aspx</DependentUpon>
+    <Compile Include="Deposit.aspx.vb">
+      <DependentUpon>Deposit.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="ShowDeposit.aspx.designer.vb">
-      <DependentUpon>ShowDeposit.aspx</DependentUpon>
+    <Compile Include="Dividend1.aspx.designer.vb">
+      <DependentUpon>Dividend1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ShowDeposit.aspx.vb">
-      <DependentUpon>ShowDeposit.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Dividend.aspx.designer.vb">
-      <DependentUpon>Dividend.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Dividend.aspx.vb">
-      <DependentUpon>Dividend.aspx</DependentUpon>
+    <Compile Include="Dividend1.aspx.vb">
+      <DependentUpon>Dividend1.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Dividend\ShowDividend.aspx.designer.vb">
@@ -1344,31 +1344,31 @@
       <DependentUpon>ShowLoan1.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="AddLoan2.aspx.designer.vb">
+    <Compile Include="Loan2\AddLoan2.aspx.designer.vb">
       <DependentUpon>AddLoan2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddLoan2.aspx.vb">
+    <Compile Include="Loan2\AddLoan2.aspx.vb">
       <DependentUpon>AddLoan2.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="AllLoan2.aspx.designer.vb">
+    <Compile Include="Loan2\AllLoan2.aspx.designer.vb">
       <DependentUpon>AllLoan2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AllLoan2.aspx.vb">
+    <Compile Include="Loan2\AllLoan2.aspx.vb">
       <DependentUpon>AllLoan2.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="PaymentLoan2.aspx.designer.vb">
+    <Compile Include="Loan2\PaymentLoan2.aspx.designer.vb">
       <DependentUpon>PaymentLoan2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PaymentLoan2.aspx.vb">
+    <Compile Include="Loan2\PaymentLoan2.aspx.vb">
       <DependentUpon>PaymentLoan2.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="ShowLoan2.aspx.designer.vb">
+    <Compile Include="Loan2\ShowLoan2.aspx.designer.vb">
       <DependentUpon>ShowLoan2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ShowLoan2.aspx.vb">
+    <Compile Include="Loan2\ShowLoan2.aspx.vb">
       <DependentUpon>ShowLoan2.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
@@ -1386,17 +1386,17 @@
       <DependentUpon>Login1.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="ManageUser.aspx.designer.vb">
+    <Compile Include="Manage\ManageUser.aspx.designer.vb">
       <DependentUpon>ManageUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ManageUser.aspx.vb">
+    <Compile Include="Manage\ManageUser.aspx.vb">
       <DependentUpon>ManageUser.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="ManageUserGroup.aspx.designer.vb">
+    <Compile Include="Manage\ManageUserGroup.aspx.designer.vb">
       <DependentUpon>ManageUserGroup.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ManageUserGroup.aspx.vb">
+    <Compile Include="Manage\ManageUserGroup.aspx.vb">
       <DependentUpon>ManageUserGroup.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
@@ -1405,6 +1405,13 @@
     </Compile>
     <Compile Include="AddMember.aspx.vb">
       <DependentUpon>AddMember.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ShowDeposit.aspx.designer.vb">
+      <DependentUpon>ShowDeposit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowDeposit.aspx.vb">
+      <DependentUpon>ShowDeposit.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="ShowMember.aspx.designer.vb">
@@ -1495,6 +1502,7 @@
     <None Include="DataAccess\vfms.dbml.layout">
       <DependentUpon>vfms.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -1518,10 +1526,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Deposite\" />
-    <Folder Include="Loan 1\" />
-    <Folder Include="Loan 2\" />
-    <Folder Include="Manage\" />
+    <Folder Include="Loan1\" />
     <Folder Include="Member\" />
   </ItemGroup>
   <ItemGroup>
