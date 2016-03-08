@@ -14,24 +14,6 @@ Option Explicit On
 Partial Public Class ManageUser
 
     '''<summary>
-    '''form1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
-    '''<summary>
-    '''ScriptManager1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
-
-    '''<summary>
     '''UpdatePanel1 control.
     '''</summary>
     '''<remarks>
@@ -68,13 +50,13 @@ Partial Public Class ManageUser
     Protected WithEvents lv_User As Global.System.Web.UI.WebControls.ListView
 
     '''<summary>
-    '''sds_user control.
+    '''sds_User control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents sds_user As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents sds_User As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''Pnl_TopUser control.
@@ -275,13 +257,13 @@ Partial Public Class ManageUser
     Protected WithEvents DeleteMemberButton As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''lds_user control.
+    '''lds_ser control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lds_user As Global.System.Web.UI.WebControls.LinqDataSource
+    Protected WithEvents lds_ser As Global.System.Web.UI.WebControls.LinqDataSource
 
     '''<summary>
     '''lbl_Error control.
