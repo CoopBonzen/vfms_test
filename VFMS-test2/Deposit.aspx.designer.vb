@@ -14,13 +14,22 @@ Option Explicit On
 Partial Public Class Deposit
 
     '''<summary>
-    '''ASPxCom_Number control.
+    '''cmb_Number control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ASPxCom_Number As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents cmb_Number As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+
+    '''<summary>
+    '''lds_Member control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lds_Member As Global.System.Web.UI.WebControls.LinqDataSource
 
     '''<summary>
     '''txt_Name control.
@@ -29,7 +38,7 @@ Partial Public Class Deposit
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txt_Name As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txt_Name As Global.DevExpress.Web.ASPxEditors.ASPxLabel
 
     '''<summary>
     '''ASPxDate control.
@@ -50,6 +59,15 @@ Partial Public Class Deposit
     Protected WithEvents txt_Money As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''lbl_Error control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_Error As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
     '''btn_Save control.
     '''</summary>
     '''<remarks>
@@ -57,6 +75,15 @@ Partial Public Class Deposit
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btn_Save As Global.System.Web.UI.HtmlControls.HtmlButton
+
+    '''<summary>
+    '''btn_cancel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btn_cancel As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
     '''ASPxGridView1 control.

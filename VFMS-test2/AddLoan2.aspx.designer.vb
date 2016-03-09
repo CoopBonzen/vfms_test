@@ -14,13 +14,13 @@ Option Explicit On
 Partial Public Class AddLoan2
 
     '''<summary>
-    '''ASPxCom_Number control.
+    '''cmb_Number control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ASPxCom_Number As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents cmb_Number As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
 
     '''<summary>
     '''txt_Name control.
@@ -77,6 +77,15 @@ Partial Public Class AddLoan2
     Protected WithEvents txt_Interest As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''lbl_Error control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_Error As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
     '''btn_Save control.
     '''</summary>
     '''<remarks>
@@ -84,6 +93,15 @@ Partial Public Class AddLoan2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btn_Save As Global.System.Web.UI.HtmlControls.HtmlButton
+
+    '''<summary>
+    '''btn_cancel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btn_cancel As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
     '''lbl_NumberLoan2 control.

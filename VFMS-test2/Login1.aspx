@@ -208,7 +208,7 @@
             <%-- <input id="password_tb" type="password" placeholder="password" name="password" runat="server">--%>
             <%--<input id="btn_Login" runat="server" type="button" value="Login" onserveclick="Login_Click" />--%>
             <asp:TextBox ID="User_tb" runat="server" placeholder="Username" class="tbuser"></asp:TextBox><br>
-            <asp:TextBox ID="Password_tb" runat="server" placeholder="Password" class="tbpassword"></asp:TextBox><br>
+            <asp:TextBox ID="Password_tb" runat="server" placeholder="Password" class="tbpassword" TextMode="Password"></asp:TextBox><br>
             <asp:Button ID="btn_Login" runat="server" class="btn" onserverclick="Login_Click" Text="Login"></asp:Button>
             <dx:ASPxLabel ID="lbl_Validate" runat="server" Text="" ForeColor="Red"></dx:ASPxLabel>
         </div>

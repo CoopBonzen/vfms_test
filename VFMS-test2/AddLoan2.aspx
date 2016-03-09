@@ -41,7 +41,7 @@
                             <label for="inputEmail3" class="col-sm-2 control-label">เลขที่สมาชิก</label>
                             <div class="col-sm-10">
                                 <%--<asp:Label ID="lbl_Number" runat="server" Class="col-sm-2" Text="555" Font-Size="16"></asp:Label>--%>
-                                <dx:ASPxComboBox ID="ASPxCom_Number" runat="server" ValueType="System.String" CssClass="form-control" Width="20%"></dx:ASPxComboBox>
+                                <dx:ASPxComboBox ID="cmb_Number" runat="server" ValueType="System.String" CssClass="form-control" Width="20%"></dx:ASPxComboBox>
                             </div>
                         </div>
                         <div class="form-group">
@@ -91,10 +91,14 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <dx:ASPxLabel ID="lbl_Error" runat="server" Text="" Visible="true" ForeColor="Red" Style="text-align: center">
+                            </dx:ASPxLabel>
+                        </div>
+                        <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
 
                                 <button type="submit" id="btn_Save" runat="server" class="btn btn-info t"><i class="fa fa-save">&nbsp;บันทึก</i></button>
-                                <button type="submit" id="btn_cancel" class="btn btn-success " style="margin-right: 5px;"><i class="fa trash-o">ยกเลิก</i></button>
+                                <button type="submit" id="btn_cancel" runat="server" class="btn btn-success " style="margin-right: 5px;"><i class="fa trash-o">ยกเลิก</i></button>
 
                             </div>
                         </div>

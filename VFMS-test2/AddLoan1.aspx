@@ -2,10 +2,20 @@
 
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxCallback" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxCallbackPanel" TagPrefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <%--    <script lang="javascript" type="text/javascript">
+
+        function OnName(cmd_Number) {
+            cmd.PerformCallback(cmd_Number.GetValue());
+        }
+
+    </script>--%>
     <!-- Main content -->
     <section class="content-header ">
         <h1>เพิ่มรายชื่อผู้กู้บัญชี 1
@@ -30,23 +40,38 @@
             <!-- /.box-header -->
             <div class="box-body form-horizontal ">
                 <div class="form-group">
+
                     <label for="inputEmail3" class="col-sm-2 control-label">เลขที่สมาชิก</label>
                     <div class="col-sm-10">
-                        <%--<asp:Label ID="lbl_Number" runat="server" Class="col-sm-2" Text="555" Font-Size="16"></asp:Label>--%>
-                        <dx:ASPxComboBox ID="ASPxCom_Number" runat="server" ValueType="System.String" CssClass="form-control" Width="20%"></dx:ASPxComboBox>
+                        <dx:ASPxComboBox ID="cmb_Number" ClientInstanceName="CIN_cmb_Number" runat="server"
+                            CssClass="form-control" Width="27%" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
+                            DataSourceID="lds_Member" TextField="mem_id" ValueField="mem_name"
+                            EnableCallbackMode="True" CallbackPageSize="20" Font-Size="15">
+                            <ClientSideEvents SelectedIndexChanged="function(s, e) { OnName(e);}" />
+                        </dx:ASPxComboBox>
+                        <asp:LinqDataSource ID="lds_Member" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
+                            Select="new (mem_name, mem_id)" TableName="members" EntityTypeName="">
+                        </asp:LinqDataSource>
+                        <script lang="javascript" type="text/javascript">
+
+                            function OnName(e) {
+                                var name = CIN_cmb_Number.GetValue();
+                                CIN_txt_Name.SetValue(name);
+                            }
+
+                        </script>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txt_Name" runat="server" class="form-control" Width="40%"></asp:TextBox>
+                        <dx:ASPxLabel ID="txt_Name" runat="server" ClientInstanceName="CIN_txt_Name" Width="170px"></dx:ASPxLabel>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">เลขที่ผู้กู้</label>
                     <div class="col-sm-10">
                         <asp:Label ID="lbl_Number" runat="server" Class="col-sm-2" Text="555" Font-Size="16"></asp:Label>
-                        <%--<dx:ASPxLabel ID="lbl_Number" runat="server" Class="col-sm-2" ></dx:ASPxLabel>--%>
                     </div>
                 </div>
                 <div class="form-group">
@@ -83,18 +108,22 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <dx:ASPxLabel ID="lbl_Error" runat="server" Text="" Visible="true" ForeColor="Red" Style="text-align: center">
+                    </dx:ASPxLabel>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
 
                         <button type="submit" id="btn_Save" runat="server" class="btn btn-info t"><i class="fa fa-save">&nbsp;บันทึก</i></button>
-                        <button type="submit" id="btn_cancel" class="btn btn-success " style="margin-right: 5px;"><i class="fa trash-o">ยกเลิก</i></button>
+                        <button type="submit" id="btn_cancel" runat="server" class="btn btn-success " style="margin-right: 5px;"><i class="fa trash-o">ยกเลิก</i></button>
 
                     </div>
                 </div>
             </div>
             <!-- /.box-body -->
-
             <!-- /.box-footer -->
         </div>
+
 
 
         <div class="box box-success">
@@ -199,4 +228,5 @@
         </div>
         <!-- /.box -->
     </section>
+
 </asp:Content>

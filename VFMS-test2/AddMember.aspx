@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">เลขที่สมาชิก</label>
                         <div class="col-sm-10">
-                            <asp:Label ID="lbl_Number" runat="server" Class="col-sm-2" Text="555" Font-Size="16"></asp:Label>
+                            <asp:Label ID="lbl_Number" runat="server" Class="col-sm-2" Text="" Font-Size="16"></asp:Label>
                             <%--<dx:ASPxLabel ID="lbl_Number" runat="server" Class="col-sm-2" ></dx:ASPxLabel>--%>
                         </div>
                     </div>
@@ -46,10 +46,11 @@
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">ที่อยู่</label>
                         <div class="col-sm-10">
-                            <textarea id="txt_Address" runat="server" class="form-control" rows="3">บ้านเลขที่    หมู่ที่ 4 ตำบลมาโมง อำเภอสุคิริน จังหวัดนราธิวาส</textarea>
+                            <%--<textarea id="txt_Address" runat="server" class="form-control" rows="3">บ้านเลขที่    หมู่ที่ 4 ตำบลมาโมง อำเภอสุคิริน จังหวัดนราธิวาส</textarea>--%>
+                            <dx:ASPxMemo ID="ASPx_Address" runat="server" cssclass="form-control" Height="80px" Width="200px" Text="บ้านเลขที่    หมู่ที่ 4 ตำบลมาโมง อำเภอสุคิริน จังหวัดนราธิวาส"></dx:ASPxMemo>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group">    
                         <label for="inputPassword3" class="col-sm-2 control-label">เลขที่บัตรประชาชน</label>
                         <div class="col-sm-10">
                             <asp:TextBox ID="txt_ID" runat="server" class="form-control" placeholder="0-0000-00000-00-0" Width="30%"></asp:TextBox>
@@ -58,14 +59,17 @@
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">วันที่สมัคร</label>
                         <div class="col-sm-10">
-                            <dx:ASPxDateEdit ID="ASPxDate" runat="server" CssClass="form-control" Width="20%"></dx:ASPxDateEdit>
+                            <dx:ASPxDateEdit ID="ASPxDateEdit1" runat="server" CssClass="form-control" Width="20%"></dx:ASPxDateEdit>
                         </div>
                     </div>
                     <div class="form-group">
+                        <dx:ASPxLabel ID="lbl_Error" runat="server" Text="" Visible="true" ForeColor="Red" Style="text-align: center">
+                        </dx:ASPxLabel>
+                    </div>
+                    <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-
-                            <button type="submit" id="btn_Save" runat="server" class="btn btn-info t"><i class="fa fa-save">บันทึก</i></button>
-                            <button type="submit" id="btn_cancel" class="btn btn-success " style="margin-right: 5px;"><i class="fa trash-o">ยกเลิก</i></button>
+                           <asp:Button id="btn_Save" runat="server" class="btn btn-info" Text="บันทึก" ></asp:Button>
+                            <button type="submit" id="btn_cancel" runat="server" class="btn btn-success " style="margin-right: 5px;"><i class="fa trash-o">ยกเลิก</i></button>
 
                         </div>
                     </div>
@@ -86,9 +90,9 @@
                 </div>
             </div>
             <div class="box-body">
-                <dx:ASPxGridView ID="ASPxGridView1" runat="server" CssClass="table">
+               <dx:ASPxGridView ID="gv_addmember" ClientInstanceName="gv_addmember" runat="server" CssClass="table" DataSourceID="sds_addmember">
                     <Columns>
-                        <dx:GridViewDataTextColumn Caption="รหัสสมาชิก" FieldName="Q_ID" ReadOnly="True"
+                        <dx:GridViewDataTextColumn Caption="รหัสสมาชิก" FieldName="mem_id" ReadOnly="True"
                             VisibleIndex="0" CellStyle-HorizontalAlign="Center" Width="8%" SortOrder="Descending">
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
@@ -96,41 +100,41 @@
                             </CellStyle>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="ชื่อ-สกุล" FieldName="Title" VisibleIndex="2" Width="20%">
+                        <dx:GridViewDataTextColumn Caption="ชื่อ-สกุล" FieldName="mem_name" VisibleIndex="1" Width="20%">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("Title") %>'>
+                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("mem_name")%>'>
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="ที่อยู่" FieldName="company_name" VisibleIndex="4"
+                        <dx:GridViewDataTextColumn Caption="ที่อยู่" FieldName="mem_address" VisibleIndex="2"
                             Width="20%">
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_ContactCompany" runat="server" Text='<%# Eval("company_name") %>'>
+                                <asp:Label ID="lbl_ContactCompany" runat="server" Text='<%# Eval("mem_address")%>'>
                                 </asp:Label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="เลขบัตรประชาชน" FieldName="attn" VisibleIndex="5"
+                        <dx:GridViewDataTextColumn Caption="เลขบัตรประชาชน" FieldName="mem_id_card" VisibleIndex="3"
                             Width="20%">
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_ContactName" runat="server" Text='<%# Eval("attn") %>'></asp:Label>
+                                <asp:Label ID="lbl_ContactName" runat="server" Text='<%# Eval("mem_id_card")%>'></asp:Label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataDateColumn Caption="วันที่สมัคร" FieldName="Q_Date" VisibleIndex="6"
+                        <dx:GridViewDataDateColumn Caption="วันที่สมัคร" FieldName="mem_reg_date" VisibleIndex="4"
                             Width="8%">
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_QDate" runat="server" Text='<%# Eval("Q_Date", "{0:d/MM/yyyy}") %>'>
+                                <asp:Label ID="lbl_QDate" runat="server" Text='<%# Eval("mem_reg_date", "{0:d/MM/yyyy}")%>'>
                                 </asp:Label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataDateColumn>
-                        <dx:GridViewCommandColumn ButtonType="Image" VisibleIndex="8" ShowInCustomizationForm="True"
+                        <dx:GridViewCommandColumn ButtonType="Image" VisibleIndex="5" ShowInCustomizationForm="True"
                             Width="8%" Caption="แก้ไข">
                             <EditButton Visible="True">
                                 <Image AlternateText="Edit" Url="../images/edit.png">
@@ -148,8 +152,30 @@
                             </ClearFilterButton>
                         </dx:GridViewCommandColumn>
                     </Columns>
-                    <Settings ShowFilterRow="True" />
+                    <SettingsEditing Mode="Inline" />
+                    <Settings ShowFilterRow="False" />
                 </dx:ASPxGridView>
+                <asp:SqlDataSource ID="sds_addmember" runat="server" ConnectionString="<%$ ConnectionStrings:vfms_dbConnectionString%>"
+                    SelectCommand="SELECT mem_id, mem_name, mem_address, mem_id_card, mem_reg_date FROM member"
+                    UpdateCommand="UPDATE [member] SET [mem_name] = @mem_name WHERE [mem_id] = @mem_id"
+                    DeleteCommand="DELETE FROM [member] WHERE [mem_id] = @mem_id"
+                    InsertCommand="INSERT INTO [member] ([mem_id], [mem_name], [mem_address], [mem_id_card], [mem_reg_date]) VALUES (@mem_id, @mem_name, @mem_address, @mem_id_card, @mem_reg_date)">
+                    <DeleteParameters>
+                        <asp:Parameter Name="mem_id" Type="String" />
+                    </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="mem_id" Type="String" />
+                        <asp:Parameter Name="mem_name" Type="String" />
+                        <asp:Parameter Name="mem_address" Type="String" />
+                        <asp:Parameter Name="mem_id_card" Type="String" />
+                        <asp:Parameter DbType="Date" Name="mem_reg_date" />
+
+                    </InsertParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="mem_address" Type="String" />
+                    </UpdateParameters>
+
+                </asp:SqlDataSource>
             </div>
             <!-- /.box-body -->
         </div>

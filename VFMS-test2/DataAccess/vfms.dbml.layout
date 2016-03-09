@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="vfms">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15.75, 8.875" name="vfms">
   <DataContextMoniker Name="/vfmsDataContext" />
   <nestedChildShapes>
-    <classShape Id="aeb2ab14-8672-49f4-8979-594ba197853c" absoluteBounds="6.75, 2.5, 2, 1.9631982421875005">
+    <classShape Id="aeb2ab14-8672-49f4-8979-594ba197853c" absoluteBounds="6, 2.125, 2, 1.9631982421875005">
       <DataClassMoniker Name="/vfmsDataContext/member" />
       <nestedChildShapes>
-        <elementListCompartment Id="6e15f189-9b4f-43eb-985a-0a0b83ab48c5" absoluteBounds="6.765, 2.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6e15f189-9b4f-43eb-985a-0a0b83ab48c5" absoluteBounds="6.015, 2.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="08073ac9-280b-4dad-bdc2-b10a4563016c" absoluteBounds="3.5, 2.125, 2, 1.9631982421875005">
@@ -33,11 +33,119 @@
         <classShapeMoniker Id="08073ac9-280b-4dad-bdc2-b10a4563016c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 3.70359537760417); (1.75 : 4.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 3.70359537760417); (1.75 : 4.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/vfmsDataContext/usergroup/usergroup_usergroup_role" />
       <nodes>
         <classShapeMoniker Id="b61322d3-1419-4f0f-b039-6db5dede698c" />
         <classShapeMoniker Id="e6df5ab1-8e10-40e6-9e04-13700b91c676" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2837345f-a0d0-4202-973e-86d54172f5f1" absoluteBounds="11.25, 4, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/vfmsDataContext/contract_acc1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef989ac9-5ea2-444a-9341-9374c11176ed" absoluteBounds="11.265, 4.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f56b5d9f-3d31-493b-bc46-84e674a6ecdd" absoluteBounds="13.5, 4, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/vfmsDataContext/contract_acc2" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89894a1d-f656-4f8b-a178-893e2302a36d" absoluteBounds="13.515, 4.4600000000000009, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7c002276-22c5-42ca-8be2-c86eee0ef6cd" absoluteBounds="8.625, 2, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/vfmsDataContext/depo_interest" />
+      <nestedChildShapes>
+        <elementListCompartment Id="affe58ba-4561-46b6-83c2-c04c379b841a" absoluteBounds="8.64, 2.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="012517b6-08bc-451b-9144-8936aab6e98c" absoluteBounds="8.625, 5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/vfmsDataContext/depo_transaction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0bbf16c2-a6e2-4591-8afd-8f534b331a2c" absoluteBounds="8.64, 5.4600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ffc4f94-c5f5-4649-8ef5-a69523eb467e" absoluteBounds="8.5, 7, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/vfmsDataContext/dividend" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5f732544-94b0-4e27-b6de-2f5ad71a6180" absoluteBounds="8.515, 7.4600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6efb0faa-2654-4eb0-a975-319a20631720" absoluteBounds="11.25, 2.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/vfmsDataContext/loan_acc1_transaction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f6a10d1b-c47e-4f7d-80fa-1c3da46b1562" absoluteBounds="11.265, 2.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ace42b5d-f5d5-4f4f-af8f-4abbce2e55cf" absoluteBounds="13.5, 2.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/vfmsDataContext/loan_acc2_transaction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6002abfe-f4f3-49e9-80b0-3431cb8d49af" absoluteBounds="13.515, 2.5850000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d516d518-104c-402e-bbf3-a8208371e680" absoluteBounds="2.75, 7, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/vfmsDataContext/loan_account1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5f3832aa-882b-4a38-b4d5-db91335eb374" absoluteBounds="2.7650000000000006, 7.4600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="084b8d88-f441-4416-bb9a-d5ba6fefaaf0" absoluteBounds="5.25, 7, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/vfmsDataContext/loan_account2" />
+      <nestedChildShapes>
+        <elementListCompartment Id="18dc688d-c6fc-440e-ba89-eaf37ffbaad4" absoluteBounds="5.2650000000000006, 7.4600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3296ee80-3c7f-4921-8cd1-5ac135bb6632" absoluteBounds="5.625, 4.875, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/vfmsDataContext/loan_member" />
+      <nestedChildShapes>
+        <elementListCompartment Id="415349da-c624-46b3-a7d0-100fd6e0b1ce" absoluteBounds="5.6400000000000006, 5.3350000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8 : 2.75564697265625); (8.625 : 2.75564697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/vfmsDataContext/member/member_depo_interest" />
+      <nodes>
+        <classShapeMoniker Id="aeb2ab14-8672-49f4-8979-594ba197853c" />
+        <classShapeMoniker Id="7c002276-22c5-42ca-8be2-c86eee0ef6cd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.625 : 6.2612939453125); (8 : 6.62782348632812); (8 : 7.78929768880208); (8.5 : 7.78929768880208)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/vfmsDataContext/loan_member/loan_member_dividend" />
+      <nodes>
+        <classShapeMoniker Id="3296ee80-3c7f-4921-8cd1-5ac135bb6632" />
+        <classShapeMoniker Id="6ffc4f94-c5f5-4649-8ef5-a69523eb467e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.625 : 5.56814697265625); (3.78125 : 5.56814697265625); (3.78125 : 7)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/vfmsDataContext/loan_member/loan_member_loan_account1" />
+      <nodes>
+        <classShapeMoniker Id="3296ee80-3c7f-4921-8cd1-5ac135bb6632" />
+        <classShapeMoniker Id="d516d518-104c-402e-bbf3-a8208371e680" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.4375 : 6.2612939453125); (6.4375 : 7)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/vfmsDataContext/loan_member/loan_member_loan_account2" />
+      <nodes>
+        <classShapeMoniker Id="3296ee80-3c7f-4921-8cd1-5ac135bb6632" />
+        <classShapeMoniker Id="084b8d88-f441-4416-bb9a-d5ba6fefaaf0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.8125 : 4.0881982421875); (6.8125 : 4.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/vfmsDataContext/member/member_loan_member" />
+      <nodes>
+        <classShapeMoniker Id="aeb2ab14-8672-49f4-8979-594ba197853c" />
+        <classShapeMoniker Id="3296ee80-3c7f-4921-8cd1-5ac135bb6632" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1b820450-f4ec-4d4e-87fa-de6514905713" absoluteBounds="8.75, 3.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/vfmsDataContext/deposit_account" />
+      <nestedChildShapes>
+        <elementListCompartment Id="47754b7b-e560-4a8d-a9c5-afe9478ed9bb" absoluteBounds="8.765, 4.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8 : 3.85659912109375); (8.75 : 3.85659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/vfmsDataContext/member/member_deposit_account" />
+      <nodes>
+        <classShapeMoniker Id="aeb2ab14-8672-49f4-8979-594ba197853c" />
+        <classShapeMoniker Id="1b820450-f4ec-4d4e-87fa-de6514905713" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

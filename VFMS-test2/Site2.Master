@@ -127,7 +127,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="ShowDeposite.aspx"><i class="fa fa-circle-o"></i>ข้อมูลเงินฝาก</a></li>
-                                <li><a href="Deposite.aspx"><i class="fa fa-circle-o"></i>ฝากเงิน</a></li>
+                                <li><a href="Deposit.aspx"><i class="fa fa-circle-o"></i>ฝากเงิน</a></li>
                                 <%--<li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i>Fixed</a></li>
                             <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Collapsed Sidebar</a></li>--%>
                             </ul>
@@ -153,10 +153,10 @@
                                 <small class="label pull-right bg-blue">2</small>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="Loan2/AllLoan2.aspx"><i class="fa fa-circle-o"></i>ข้อมูลเงินกู้บัญชี 2</a></li>
-                                <li><a href="Loan2/PaymentLoan2.aspx"><i class="fa fa-circle-o"></i>ชำระเงินกู้บัญชี 2</a></li>
-                                <li><a href="Loan2/AddLoan2.aspx"><i class="fa fa-circle-o"></i>เพิ่มรายชื่อผู้กู้</a></li>
-                                <li><a href="Loan2/ShowLoan2.aspx"><i class="fa fa-circle-o"></i>รายชื่อผู้กู้ทั้งหมด</a></li>
+                                <li><a href="AllLoan2.aspx"><i class="fa fa-circle-o"></i>ข้อมูลเงินกู้บัญชี 2</a></li>
+                                <li><a href="PaymentLoan2.aspx"><i class="fa fa-circle-o"></i>ชำระเงินกู้บัญชี 2</a></li>
+                                <li><a href="AddLoan2.aspx"><i class="fa fa-circle-o"></i>เพิ่มรายชื่อผู้กู้</a></li>
+                                <li><a href="ShowLoan2.aspx"><i class="fa fa-circle-o"></i>รายชื่อผู้กู้ทั้งหมด</a></li>
                             </ul>
                         </li>
                         <li class="treeview">

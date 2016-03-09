@@ -28,7 +28,10 @@
             <div class="box-body">
                 <dx:ASPxGridView ID="ASPxGridView1" runat="server" CssClass="table">
                     <Columns>
-                        <dx:GridViewDataTextColumn Caption="รหัสสมาชิก" FieldName="Q_ID" ReadOnly="True"
+                       <dx:ASPxGridView ID="gv_showmember" ClientInstanceName="gv_addmember" runat="server" CssClass="table" 
+                    DataSourceID="sds_showmember" KeyFieldName="mem_id">
+                    <Columns>
+                        <dx:GridViewDataTextColumn Caption="รหัสสมาชิก" FieldName="mem_id" ReadOnly="True"
                             VisibleIndex="0" CellStyle-HorizontalAlign="Center" Width="8%" SortOrder="Descending">
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
@@ -36,41 +39,41 @@
                             </CellStyle>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="ชื่อ-สกุล" FieldName="Title" VisibleIndex="2" Width="20%">
+                        <dx:GridViewDataTextColumn Caption="ชื่อ-สกุล" FieldName="mem_name" VisibleIndex="1" Width="20%">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("Title") %>'>
+                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("mem_name")%>'>
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="ที่อยู่" FieldName="company_name" VisibleIndex="4"
+                        <dx:GridViewDataTextColumn Caption="ที่อยู่" FieldName="mem_address" VisibleIndex="2"
                             Width="20%">
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_ContactCompany" runat="server" Text='<%# Eval("company_name") %>'>
+                                <asp:Label ID="lbl_ContactCompany" runat="server" Text='<%# Bind("mem_address")%>'>
                                 </asp:Label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="เลขบัตรประชาชน" FieldName="attn" VisibleIndex="5"
+                        <dx:GridViewDataTextColumn Caption="เลขบัตรประชาชน" FieldName="mem_id_card" VisibleIndex="3"
                             Width="20%">
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_ContactName" runat="server" Text='<%# Eval("attn") %>'></asp:Label>
+                                <asp:Label ID="lbl_ContactName" runat="server" Text='<%# Bind("mem_id_card")%>'></asp:Label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataDateColumn Caption="วันที่สมัคร" FieldName="Q_Date" VisibleIndex="6"
+                        <dx:GridViewDataDateColumn Caption="วันที่สมัคร" FieldName="mem_reg_date" VisibleIndex="4"
                             Width="8%">
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_QDate" runat="server" Text='<%# Eval("Q_Date", "{0:d/MM/yyyy}") %>'>
+                                <asp:Label ID="lbl_QDate" runat="server" Text='<%# Eval("mem_reg_date", "{0:d/MM/yyyy}")%>'>
                                 </asp:Label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataDateColumn>
-                        <dx:GridViewCommandColumn ButtonType="Image" VisibleIndex="8" ShowInCustomizationForm="True"
+                        <dx:GridViewCommandColumn ButtonType="Image" VisibleIndex="5" ShowInCustomizationForm="True"
                             Width="8%" Caption="แก้ไข">
                             <EditButton Visible="True">
                                 <Image AlternateText="Edit" Url="../images/edit.png">
@@ -88,8 +91,19 @@
                             </ClearFilterButton>
                         </dx:GridViewCommandColumn>
                     </Columns>
+                    <SettingsEditing Mode="Inline" />
                     <Settings ShowFilterRow="True" />
                 </dx:ASPxGridView>
+                <asp:SqlDataSource ID="sds_showmember" runat="server" ConnectionString="<%$ ConnectionStrings:vfms_dbConnectionString%>"
+                    SelectCommand="SELECT mem_id, mem_name, mem_address, mem_id_card, mem_reg_date FROM member"
+                    UpdateCommand="UPDATE [member] SET [mem_address] = @mem_address WHERE [mem_id] = @mem_id"
+                    DeleteCommand="DELETE FROM [member] WHERE [mem_id] = @mem_id"
+                    InsertCommand="INSERT INTO [member] ([mem_id], [mem_name], [mem_address], [mem_id_card], [mem_reg_date]) VALUES (@mem_id, @mem_name, @mem_address, @mem_id_card, @mem_reg_date)">
+                    <DeleteParameters>
+                        <asp:Parameter Name="mem_id" Type="String" />
+                    </DeleteParameters>
+                    
+                </asp:SqlDataSource>
             </div>
             <!-- /.box-body -->
         </div>
