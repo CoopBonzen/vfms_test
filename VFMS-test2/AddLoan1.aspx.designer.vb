@@ -86,6 +86,60 @@ Partial Public Class AddLoan1
     Protected WithEvents txt_Interest As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''cmb_con1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cmb_con1 As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+
+    '''<summary>
+    '''LinqDataSource1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LinqDataSource1 As Global.System.Web.UI.WebControls.LinqDataSource
+
+    '''<summary>
+    '''txt_Name1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_Name1 As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
+    '''cmb_con2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cmb_con2 As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+
+    '''<summary>
+    '''LinqDataSource2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LinqDataSource2 As Global.System.Web.UI.WebControls.LinqDataSource
+
+    '''<summary>
+    '''txt_Name2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txt_Name2 As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
     '''lbl_Error control.
     '''</summary>
     '''<remarks>

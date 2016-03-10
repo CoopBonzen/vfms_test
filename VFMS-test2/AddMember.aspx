@@ -90,19 +90,24 @@
                 </div>
             </div>
             <div class="box-body">
-               <dx:ASPxGridView ID="gv_addmember" ClientInstanceName="gv_addmember" runat="server" CssClass="table" DataSourceID="sds_addmember">
+               <dx:ASPxGridView ID="gv_addmember" ClientInstanceName="gv_addmember" runat="server" CssClass="table"
+                    DataSourceID="sds_addmember" KeyFieldName="mem_id">
                     <Columns>
                         <dx:GridViewDataTextColumn Caption="รหัสสมาชิก" FieldName="mem_id" ReadOnly="True"
-                            VisibleIndex="0" CellStyle-HorizontalAlign="Center" Width="8%" SortOrder="Descending">
+                            VisibleIndex="0" Width="8%" SortOrder="Descending">
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
+                            <EditItemTemplate>
+                                <asp:Label ID="lbl_mem_id" runat="server" Text='<%# Eval("mem_id")%>'>
+                                </asp:Label>
+                            </EditItemTemplate>
                             <CellStyle HorizontalAlign="Center">
                             </CellStyle>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn Caption="ชื่อ-สกุล" FieldName="mem_name" VisibleIndex="1" Width="20%">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("mem_name")%>'>
+                                <asp:TextBox ID="txt_name" runat="server" Text='<%# Bind("mem_name")%>'>
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
@@ -112,8 +117,8 @@
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_ContactCompany" runat="server" Text='<%# Eval("mem_address")%>'>
-                                </asp:Label>
+                                <asp:TextBox ID="txt_ContactCompany" runat="server" Text='<%# Bind("mem_address")%>'>
+                                </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
@@ -122,7 +127,9 @@
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_ContactName" runat="server" Text='<%# Eval("mem_id_card")%>'></asp:Label>
+                                <asp:TextBox ID="txt_memcard" runat="server" Text='<%# Bind("mem_id_card")%>'>
+
+                                </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
@@ -153,13 +160,14 @@
                         </dx:GridViewCommandColumn>
                     </Columns>
                     <SettingsEditing Mode="Inline" />
-                    <Settings ShowFilterRow="False" />
+                    <Settings ShowFilterRow="True" />
                 </dx:ASPxGridView>
                 <asp:SqlDataSource ID="sds_addmember" runat="server" ConnectionString="<%$ ConnectionStrings:vfms_dbConnectionString%>"
                     SelectCommand="SELECT mem_id, mem_name, mem_address, mem_id_card, mem_reg_date FROM member"
-                    UpdateCommand="UPDATE [member] SET [mem_name] = @mem_name WHERE [mem_id] = @mem_id"
+                    UpdateCommand="UPDATE [member] SET [mem_name] = @mem_name, [mem_address] = @mem_address, [mem_id_card] = @mem_id_card WHERE [mem_id] = @mem_id"
                     DeleteCommand="DELETE FROM [member] WHERE [mem_id] = @mem_id"
-                    InsertCommand="INSERT INTO [member] ([mem_id], [mem_name], [mem_address], [mem_id_card], [mem_reg_date]) VALUES (@mem_id, @mem_name, @mem_address, @mem_id_card, @mem_reg_date)">
+                    InsertCommand="INSERT INTO [member] ([mem_id], [mem_name], [mem_address], [mem_id_card], [mem_reg_date]) 
+                    VALUES (@mem_id, @mem_name, @mem_address, @mem_id_card, @mem_reg_date)">
                     <DeleteParameters>
                         <asp:Parameter Name="mem_id" Type="String" />
                     </DeleteParameters>
@@ -169,10 +177,11 @@
                         <asp:Parameter Name="mem_address" Type="String" />
                         <asp:Parameter Name="mem_id_card" Type="String" />
                         <asp:Parameter DbType="Date" Name="mem_reg_date" />
-
                     </InsertParameters>
                     <UpdateParameters>
+                        <asp:Parameter Name="mem_name" Type="String" />
                         <asp:Parameter Name="mem_address" Type="String" />
+                        <asp:Parameter Name="mem_id_card" Type="String" />
                     </UpdateParameters>
 
                 </asp:SqlDataSource>

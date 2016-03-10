@@ -40,14 +40,29 @@
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">เลขที่สมาชิก</label>
                             <div class="col-sm-10">
-                                <%--<asp:Label ID="lbl_Number" runat="server" Class="col-sm-2" Text="555" Font-Size="16"></asp:Label>--%>
-                                <dx:ASPxComboBox ID="cmb_Number" runat="server" ValueType="System.String" CssClass="form-control" Width="20%"></dx:ASPxComboBox>
+                                <dx:ASPxComboBox ID="cmb_Number" ClientInstanceName="CIN_cmb_Number" runat="server"
+                                    CssClass="form-control" Width="27%" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
+                                    DataSourceID="lds_Member" TextField="mem_id" ValueField="mem_name"
+                                    EnableCallbackMode="True" CallbackPageSize="20" Font-Size="15">
+                                    <ClientSideEvents SelectedIndexChanged="function(s, e) { OnName(e);}" />
+                                </dx:ASPxComboBox>
+                                <asp:LinqDataSource ID="lds_Member" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
+                                    Select="new (mem_name, mem_id)" TableName="members" EntityTypeName="">
+                                </asp:LinqDataSource>
+                                <script lang="javascript" type="text/javascript">
+
+                                    function OnName(e) {
+                                        var name = CIN_cmb_Number.GetValue();
+                                        CIN_txt_Name.SetValue(name);
+                                    }
+
+                                </script>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
                             <div class="col-sm-10">
-                                <asp:TextBox ID="txt_Name" runat="server" class="form-control" Width="70%"></asp:TextBox>
+                                <dx:ASPxLabel ID="txt_Names" runat="server" ClientInstanceName="CIN_txt_Name" Width="170px"></dx:ASPxLabel>
                             </div>
                         </div>
                         <div class="form-group">
@@ -88,6 +103,62 @@
                             </div>
                             <div class="col-sm-2 ">
                                 <label for="inputPassword3" class="col-sm-2 control-label">%</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">ผู้ค่ำคนที่ 1</label>
+                            <div class="col-sm-10">
+                                <dx:ASPxComboBox ID="cmb_con1" ClientInstanceName="CIN_cmb_con1" runat="server"
+                                    CssClass="form-control" Width="27%" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
+                                    DataSourceID="lds_Member1" TextField="mem_id" ValueField="mem_name"
+                                    EnableCallbackMode="True" CallbackPageSize="20" Font-Size="15">
+                                    <ClientSideEvents SelectedIndexChanged="function(s, e) { OnName1(e);}" />
+                                </dx:ASPxComboBox>
+                                <asp:LinqDataSource ID="lds_Member1" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
+                                    Select="new (mem_name, mem_id)" TableName="members" EntityTypeName="">
+                                </asp:LinqDataSource>
+                                <script lang="javascript" type="text/javascript">
+
+                                    function OnName1(e) {
+                                        var name = CIN_cmb_con1.GetValue();
+                                        CIN_txt_Name1.SetValue(name);
+                                    }
+
+                                </script>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
+                            <div class="col-sm-10">
+                                <dx:ASPxLabel ID="txt_Name1" runat="server" ClientInstanceName="CIN_txt_Name1" Width="170px"></dx:ASPxLabel>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">ผู้ค่ำคนที่ 2</label>
+                            <div class="col-sm-10">
+                                <dx:ASPxComboBox ID="cmb_con2" ClientInstanceName="CIN_cmb_con2" runat="server"
+                                    CssClass="form-control" Width="27%" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
+                                    DataSourceID="lds_Member2" TextField="mem_id" ValueField="mem_name"
+                                    EnableCallbackMode="True" CallbackPageSize="20" Font-Size="15">
+                                    <ClientSideEvents SelectedIndexChanged="function(s, e) { OnName2(e);}" />
+                                </dx:ASPxComboBox>
+                                <asp:LinqDataSource ID="lds_Member2" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
+                                    Select="new (mem_name, mem_id)" TableName="members" EntityTypeName="">
+                                </asp:LinqDataSource>
+                                <script lang="javascript" type="text/javascript">
+
+                                    function OnName2(e) {
+                                        var name = CIN_cmb_con2.GetValue();
+                                        CIN_txt_Name2.SetValue(name);
+                                    }
+
+                                </script>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
+                            <div class="col-sm-10">
+                                <dx:ASPxLabel ID="txt_Name2" runat="server" ClientInstanceName="CIN_txt_Name2" Width="170px"></dx:ASPxLabel>
                             </div>
                         </div>
                         <div class="form-group">

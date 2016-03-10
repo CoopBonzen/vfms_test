@@ -71,7 +71,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">เลขที่ผู้กู้</label>
                     <div class="col-sm-10">
-                        <asp:Label ID="lbl_Number" runat="server" Class="col-sm-2" Text="555" Font-Size="16"></asp:Label>
+                        <asp:Label ID="lbl_Number" runat="server" Class="col-sm-2" Font-Size="16"></asp:Label>
                     </div>
                 </div>
                 <div class="form-group">
@@ -108,6 +108,62 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">ผู้ค่ำคนที่ 1</label>
+                    <div class="col-sm-10">
+                        <dx:ASPxComboBox ID="cmb_con1" ClientInstanceName="CIN_cmb_con1" runat="server"
+                            CssClass="form-control" Width="27%" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
+                            DataSourceID="lds_Member" TextField="mem_id" ValueField="mem_name"
+                            EnableCallbackMode="True" CallbackPageSize="20" Font-Size="15">
+                            <ClientSideEvents SelectedIndexChanged="function(s, e) { OnName1(e);}" />
+                        </dx:ASPxComboBox>
+                        <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
+                            Select="new (mem_name, mem_id)" TableName="members" EntityTypeName="">
+                        </asp:LinqDataSource>
+                        <script lang="javascript" type="text/javascript">
+
+                            function OnName1(e) {
+                                var name = CIN_cmb_con1.GetValue();
+                                CIN_txt_Name1.SetValue(name);
+                            }
+
+                        </script>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
+                    <div class="col-sm-10">
+                        <dx:ASPxLabel ID="txt_Name1" runat="server" ClientInstanceName="CIN_txt_Name1" Width="170px"></dx:ASPxLabel>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">ผู้ค่ำคนที่ 2</label>
+                    <div class="col-sm-10">
+                        <dx:ASPxComboBox ID="cmb_con2" ClientInstanceName="CIN_cmb_con2" runat="server"
+                            CssClass="form-control" Width="27%" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
+                            DataSourceID="lds_Member" TextField="mem_id" ValueField="mem_name"
+                            EnableCallbackMode="True" CallbackPageSize="20" Font-Size="15">
+                            <ClientSideEvents SelectedIndexChanged="function(s, e) { OnName2(e);}" />
+                        </dx:ASPxComboBox>
+                        <asp:LinqDataSource ID="LinqDataSource2" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
+                            Select="new (mem_name, mem_id)" TableName="members" EntityTypeName="">
+                        </asp:LinqDataSource>
+                        <script lang="javascript" type="text/javascript">
+
+                            function OnName2(e) {
+                                var name = CIN_cmb_con2.GetValue();
+                                CIN_txt_Name2.SetValue(name);
+                            }
+
+                        </script>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
+                    <div class="col-sm-10">
+                        <dx:ASPxLabel ID="txt_Name2" runat="server" ClientInstanceName="CIN_txt_Name2" Width="170px"></dx:ASPxLabel>
+                    </div>
+                </div>
+                <div class="form-group">
                     <dx:ASPxLabel ID="lbl_Error" runat="server" Text="" Visible="true" ForeColor="Red" Style="text-align: center">
                     </dx:ASPxLabel>
                 </div>
@@ -120,8 +176,8 @@
                     </div>
                 </div>
             </div>
-            <!-- /.box-body -->
-            <!-- /.box-footer -->
+        <!-- /.box-body -->
+        <!-- /.box-footer -->
         </div>
 
 

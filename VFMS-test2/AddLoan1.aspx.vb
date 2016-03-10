@@ -11,7 +11,7 @@ Public Class AddLoan1
 
     'Check add Save
     Private Function CheckValidatedata() As Boolean
-        If txt_Name.Text.Trim = String.Empty Then
+        If cmb_Number.Text.Trim = String.Empty Then
             lbl_Error.Text = "กรุณาเลือกรหัสสมาชิก"
             lbl_Error.Visible = True
             Return False
@@ -38,10 +38,10 @@ Public Class AddLoan1
     End Function
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'If String.IsNullOrEmpty(Session("Username")) Then Response.Redirect("~/Login.aspx")
+        If String.IsNullOrEmpty(Session("Username")) Then Response.Redirect("~/Login.aspx")
 
 
-        'RunMemberID()
+        RunLoanID()
 
         'If (Not IsCallback) Then
         '    FillAttnCombo(Session("mem_id"))
@@ -110,50 +110,87 @@ Public Class AddLoan1
     '    End If
     'End Sub
 
-    Public Sub RunMemberID()
+    Public Sub RunLoanID()
         Using ctx As New vfmsDataContext
-            Dim MemberID As String = String.Empty
-            MemberID = "L-1." & CStr(FindNextMRunningNo(ctx)).PadLeft(3, "0")
-            lbl_Number.Text = MemberID
+            Dim LoanID As String = String.Empty
+            LoanID = "L1-" & CStr(FindNextLRunningNo(ctx)).PadLeft(3, "0")
+            lbl_Number.Text = LoanID
         End Using
     End Sub
 
-    Public Function FindNextMRunningNo(ByVal ctx As vfmsDataContext)
-        Dim mRunningNo As Integer
+    Public Function FindNextLRunningNo(ByVal ctx As vfmsDataContext)
+        Dim lRunningNo As Integer
 
-        mRunningNo = (From g In ctx.members Select CType(g.mem_runningNo, Integer?)).Max.GetValueOrDefault + 1
+        lRunningNo = (From g In ctx.loan_account1s Select CType(g.la1_id, Integer?)).Max.GetValueOrDefault + 1
 
-        Return mRunningNo
+        Return lRunningNo
     End Function
 
-    'Private Sub btn_Save_ServerClick(sender As Object, e As EventArgs) Handles btn_Save.ServerClick
-    '    If Not CheckValidatedata() Then Exit Sub
-    '    Using ctx As New vfmsDataContext
-    '        Try
-    '            'Dim maxId = (From r In ctx.members Select CType(r.mem_runningNo, Integer?)).Max
-    '            'Dim nextId = If(maxId.HasValue, maxId + 1, 1)
-    '            'Dim memberNo As String = cmb_Number.Text.Trim
-    '            'Dim memberName As String = txt_Name.Text.Trim
-    '            ''Dim memberAttn As String = ASPx_Address.Text.Trim
-    '            'Dim TbMenber As New member
-    '            'With TbMenber
-    '            '    .mem_id = memberNo
-    '            '    .mem_name = memberName
-    '            '    .mem_address = memberAttn
-    '            '    '.mem_id_card = txt_ID.Text.Trim
-    '            '    '.mem_reg_date = ASPxDateEdit1.Text.Trim
-    '            '    .mem_runningNo = nextId
+    Public Function FindNextARunningNo(ByVal ctx As vfmsDataContext)
+        Dim aRunningNo As Integer
 
-    '            End With
-    '            ctx.members.InsertOnSubmit(TbMenber)
-    '            ctx.SubmitChanges()
+        aRunningNo = (From g In ctx.loan_account1s Select CType(g.la1_id, Integer?)).Max.GetValueOrDefault + 1
 
-    '        Catch ex As Exception
-    '            Throw ex
-    '        End Try
+        Return aRunningNo
+    End Function
 
-    '    End Using
-    'End Sub
+    Public Function FindNextCRunningNo(ByVal ctx As vfmsDataContext)
+        Dim cRunningNo As Integer
+
+        cRunningNo = (From g In ctx.contract_acc1s Select CType(g.contract1_no, Integer?)).Max.GetValueOrDefault + 1
+
+        Return cRunningNo
+    End Function
+
+    Private Sub btn_Save_ServerClick(sender As Object, e As EventArgs) Handles btn_Save.ServerClick
+        If Not CheckValidatedata() Then Exit Sub
+        Using ctx As New vfmsDataContext
+            Try
+                Dim maxId = (From r In ctx.loan_members Select CType(r.lmem_runningNo, Integer?)).Max
+                Dim nextId = If(maxId.HasValue, maxId + 1, 1)
+                Dim loanNo As String = lbl_Number.Text.Trim
+                Dim accNo As String = CStr(FindNextARunningNo(ctx)).PadLeft(3, "0")
+                Dim conNO As String = CStr(FindNextCRunningNo(ctx)).PadLeft(3, "0")
+                Dim memberNo As String = cmb_Number.Text.Trim
+                Dim TbLoan As New loan_member
+                Dim TbAcc As New loan_account1
+                Dim TbCon As New contract_acc1
+                With TbLoan
+                    .lmem_id = loanNo
+                    .mem_id = memberNo
+                    .lmem_reg_date = ASPxDate.Text.Trim
+                    .lmem_runningNo = nextId
+
+                End With
+                ctx.loan_members.InsertOnSubmit(TbLoan)
+
+                With TbAcc
+                    .la1_id = accNo
+                    .lmem_id = loanNo
+                    .la1_balance = txt_Money.Text
+                    .la1_period = txt_TimeLoan.Text.Trim
+                End With
+                ctx.loan_account1s.InsertOnSubmit(TbAcc)
+
+                With TbCon
+                    .contract1_no = conNO
+                    .la1_id = accNo
+                    .cacc1_amount = txt_Money.Text
+                    .cacc1_period = txt_TimeLoan.Text.Trim
+                    .cacc1_int_rate = txt_Interest.Text.Trim
+                    .cacc1_person1 = cmb_con1.Text.Trim
+                    .cacc1_person2 = cmb_con2.Text.Trim
+
+                End With
+                ctx.contract_acc1s.InsertOnSubmit(TbCon)
+                ctx.SubmitChanges()
+
+            Catch ex As Exception
+                Throw ex
+            End Try
+
+        End Using
+    End Sub
 
     Private Sub btn_cancel_ServerClick(sender As Object, e As EventArgs) Handles btn_cancel.ServerClick
         cmb_Number.Text = ""
@@ -162,6 +199,10 @@ Public Class AddLoan1
         txt_Money.Text = ""
         txt_TimeLoan.Text = ""
         txt_Interest.Text = ""
+        cmb_con1.Text = ""
+        cmb_con2.Text = ""
 
     End Sub
+
+  
 End Class
