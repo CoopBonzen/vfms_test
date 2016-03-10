@@ -14,22 +14,40 @@ Option Explicit On
 Partial Public Class PaymentLoan1
 
     '''<summary>
-    '''ASPxCom_Number control.
+    '''cmb_Number control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ASPxCom_Number As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents cmb_Number As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
 
     '''<summary>
-    '''Aspxcom_Loan control.
+    '''lds_Member control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Aspxcom_Loan As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents lds_Member As Global.System.Web.UI.WebControls.LinqDataSource
+
+    '''<summary>
+    '''cmb_Loan control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cmb_Loan As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+
+    '''<summary>
+    '''ldr_Loan control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ldr_Loan As Global.System.Web.UI.WebControls.LinqDataSource
 
     '''<summary>
     '''txt_Name control.
@@ -38,7 +56,7 @@ Partial Public Class PaymentLoan1
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txt_Name As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txt_Name As Global.DevExpress.Web.ASPxEditors.ASPxLabel
 
     '''<summary>
     '''lbl_Number control.

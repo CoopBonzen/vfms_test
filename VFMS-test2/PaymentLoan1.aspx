@@ -30,19 +30,50 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">เลขที่สมาชิก</label>
                     <div class="col-sm-10">
-                        <dx:ASPxComboBox ID="ASPxCom_Number" runat="server" ValueType="System.String" CssClass="form-control" Width="20%"></dx:ASPxComboBox>
+                        <dx:ASPxComboBox ID="cmb_Number" ClientInstanceName="CIN_cmb_Number" runat="server"
+                            Width="20%" Height="20px"
+                            DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
+                            DataSourceID="lds_Member" TextField="mem_id" ValueField="mem_id"
+                            EnableCallbackMode="True" CallbackPageSize="20">
+                            <ClientSideEvents SelectedIndexChanged="function(s, e) {OnValueChanged(s); }"></ClientSideEvents>
+                          
+                        </dx:ASPxComboBox>
+                        <asp:LinqDataSource ID="lds_Member" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
+                            Select="new (mem_id, mem_name)"
+                            TableName="members" EntityTypeName="">
+                        </asp:LinqDataSource>
+                        <script type="text/javascript">
+
+                            function OnValueChanged(CIN_cmb_Number) {
+                                CIN_cmb_Loan.PerformCallback(CIN_cmb_Number.GetValue().toString());
+                              
+                            }                         
+
+                        </script>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">เลขที่ผู้กู้</label>
                     <div class="col-sm-10">
-                        <dx:ASPxComboBox ID="Aspxcom_Loan" runat="server" ValueType="System.String" CssClass="form-control" Width="20%"></dx:ASPxComboBox>
+                        <dx:ASPxComboBox ID="cmb_Loan" ClientInstanceName="CIN_cmb_Loan" runat="server"
+                            Width="20%" Height="20px"
+                            DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
+                            DataSourceID="ldr_Loan" TextField="lmem_id" ValueField="mem_id">
+                            <ClientSideEvents SelectedIndexChanged="function(s, e) { OnData(s); }"></ClientSideEvents>
+                        </dx:ASPxComboBox>
+                        <asp:LinqDataSource ID="ldr_Loan" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
+                            TableName="loan_members" Where="mem_id == @Name">
+                            <WhereParameters>
+                                <asp:ControlParameter Name="Name" Type="String" ControlID="cmb_Number" PropertyName="Value"
+                                    DefaultValue="1" />
+                            </WhereParameters>
+                        </asp:LinqDataSource>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
                     <div class="col-sm-6">
-                        <asp:TextBox ID="txt_Name" runat="server" class="form-control" Width="50%"></asp:TextBox>
+                         <dx:ASPxLabel ID="txt_Name" runat="server" ClientInstanceName="CIN_txt_Name" Width="170px"></dx:ASPxLabel>
                     </div>
                 </div>
                 <div class="form-group">

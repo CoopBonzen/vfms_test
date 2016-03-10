@@ -5,4 +5,7 @@
 
     End Sub
 
+    Private Sub CIN_cmb_attn_Callback(ByVal sender As Object, e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cmb_Loan.Callback
+        cmb_Loan.DataBind()
+    End Sub
 End Class
