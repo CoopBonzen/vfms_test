@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><%: Page.Title %> AdminLTE 2 | Dashboard</title>
+    <title><%: Page.Title %> VFMS  | Dashboard</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <!-- Tell the browser to be responsive to screen width -->
@@ -126,7 +126,7 @@
                                 <i class="fa fa-money"></i><span>เงินฝาก</span><i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="ShowDeposite.aspx"><i class="fa fa-circle-o"></i>ข้อมูลเงินฝาก</a></li>
+                                <li><a href="ShowDeposit.aspx"><i class="fa fa-circle-o"></i>ข้อมูลเงินฝาก</a></li>
                                 <li><a href="Deposit.aspx"><i class="fa fa-circle-o"></i>ฝากเงิน</a></li>
                                 <%--<li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i>Fixed</a></li>
                             <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Collapsed Sidebar</a></li>--%>
@@ -166,7 +166,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="ShowDividend.aspx"><i class="fa fa-circle-o"></i>ข้อมูลดอกเบี้ยปันผล</a></li>
-                                <li><a href="Dividend.aspx"><i class="fa fa-circle-o"></i>แจกแจงรายการปันผล</a></li>
+                                <li><a href="Dividend2.aspx"><i class="fa fa-circle-o"></i>แจกแจงรายการปันผล</a></li>
                                 <%--<li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i>Editors</a></li>--%>
                             </ul>
                         </li>
@@ -181,7 +181,7 @@
                             </ul>
                         </li>
                         <li class="header">เมนูด่วน</li>
-                        <li><a href="Deposite.aspx"><i class="fa fa-circle-o text-red"></i><span>ฝากเงิน</span></a></li>
+                        <li><a href="Deposit.aspx"><i class="fa fa-circle-o text-red"></i><span>ฝากเงิน</span></a></li>
                         <li><a href="PaymentLoan1.aspx"><i class="fa fa-circle-o text-yellow"></i><span>ชำระเงินกู้บัญชี 1</span></a></li>
                         <li><a href="PaymentLoan2.aspx"><i class="fa fa-circle-o text-aqua"></i><span>ชำระเงินกู้บัญชี 2</span></a></li>
                     </ul>

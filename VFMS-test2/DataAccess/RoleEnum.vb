@@ -1,19 +1,19 @@
 ﻿Public Module RoleEnum
 
     ' สิทธิต่างๆ ที่ user สามารถทำได้
-    Public Const PrivViewQPQ As String = "ViewQuotation/Proposal/General"
+    Public Const PrivViewQPQ As String = "เพิ่มสมาชิก/เปิดบัญชี"
 
-    Public Const PrivAddNewDocument As String = "AddNewDocument"
+    Public Const PrivAddNewDocument As String = "แก้ไขข้อมูลสมาชิก"
 
-    Public Const PrivEditQuotation As String = "EditQuotation"
-    Public Const PrivApproveQuotation As String = "ApproveQuotation"
-    Public Const PrivDeleteFileQuotation As String = "DeleteFileQuotation"
+    Public Const PrivEditQuotation As String = "เพิ่มข้อมูลเงินฝาก"
+    Public Const PrivApproveQuotation As String = "แก้ไขข้อมูลเงินฝาก"
+    Public Const PrivDeleteFileQuotation As String = "เพิ่มผู้กู้"
 
-    Public Const PrivUploadFileQuotation As String = "UploadFileQuotation"
-    Public Const PrivUploadFileProposal As String = "UploadFileProposal"
-    Public Const PrivUploadFileGeneral As String = "UploadFileGeneral"
+    Public Const PrivUploadFileQuotation As String = "แก้ไขข้อมูลผู้กู้"
+    Public Const PrivUploadFileProposal As String = "จัดการเงินปันผล"
+    Public Const PrivUploadFileGeneral As String = "จัดการพนักงาน"
 
-    Public Const PrivManageUserAndUserGroup As String = "ManageUserAndUserGroup"
+    Public Const PrivManageUserAndUserGroup As String = ""
 
 #Region "Privilege"
     Public Class PrivilegeInfo
@@ -59,19 +59,19 @@
     Public Sub CreatePrivilege()
         With UserPrivilege
             .Clear()
-            .Add(New PrivilegeInfo With {.Name = PrivViewQPQ, .Text = "View Quotation/Proposal/General"})
+            .Add(New PrivilegeInfo With {.Name = PrivViewQPQ, .Text = "เพิ่มสมาชิก/เปิดบัญชี"})
 
-            .Add(New PrivilegeInfo With {.Name = PrivAddNewDocument, .Text = "Add New Document"})
+            .Add(New PrivilegeInfo With {.Name = PrivAddNewDocument, .Text = "แก้ไขข้อมูลสมาชิก"})
 
-            .Add(New PrivilegeInfo With {.Name = PrivEditQuotation, .Text = "Add/Update Quotation"})
-            .Add(New PrivilegeInfo With {.Name = PrivApproveQuotation, .Text = "Approve Quotation"})
-            .Add(New PrivilegeInfo With {.Name = PrivDeleteFileQuotation, .Text = "Delete File Quotation"})
+            .Add(New PrivilegeInfo With {.Name = PrivEditQuotation, .Text = "เพิ่มข้อมูลเงินฝาก"})
+            .Add(New PrivilegeInfo With {.Name = PrivApproveQuotation, .Text = "แก้ไขข้อมูลเงินฝาก"})
+            .Add(New PrivilegeInfo With {.Name = PrivDeleteFileQuotation, .Text = "เพิ่มผู้กู้"})
 
-            .Add(New PrivilegeInfo With {.Name = PrivUploadFileQuotation, .Text = "Upload File Quotation"})
-            .Add(New PrivilegeInfo With {.Name = PrivUploadFileProposal, .Text = "Upload File Proposal"})
-            .Add(New PrivilegeInfo With {.Name = PrivUploadFileGeneral, .Text = "Upload File General"})
+            .Add(New PrivilegeInfo With {.Name = PrivUploadFileQuotation, .Text = "แก้ไขข้อมูลผู้กู้"})
+            .Add(New PrivilegeInfo With {.Name = PrivUploadFileProposal, .Text = "จัดการเงินปันผล"})
+            .Add(New PrivilegeInfo With {.Name = PrivUploadFileGeneral, .Text = "จัดการพนักงาน"})
 
-            .Add(New PrivilegeInfo With {.Name = PrivManageUserAndUserGroup, .Text = "ManageUser And UserGroup"})
+            .Add(New PrivilegeInfo With {.Name = PrivManageUserAndUserGroup, .Text = ""})
 
             End With
     End Sub

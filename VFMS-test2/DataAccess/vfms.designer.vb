@@ -849,6 +849,8 @@ Partial Public Class depo_transaction
 	
 	Private _mem_id As String
 	
+	Private _booking_by As String
+	
 	Private _deposit_account As EntityRef(Of deposit_account)
 	
     #Region "Extensibility Method Definitions"
@@ -873,6 +875,10 @@ Partial Public Class depo_transaction
     Partial Private Sub Onmem_idChanging(value As String)
     End Sub
     Partial Private Sub Onmem_idChanged()
+    End Sub
+    Partial Private Sub Onbooking_byChanging(value As String)
+    End Sub
+    Partial Private Sub Onbooking_byChanged()
     End Sub
     #End Region
 	
@@ -946,6 +952,22 @@ Partial Public Class depo_transaction
 				Me._mem_id = value
 				Me.SendPropertyChanged("mem_id")
 				Me.Onmem_idChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_booking_by", CanBeNull:=false)>  _
+	Public Property booking_by() As String
+		Get
+			Return Me._booking_by
+		End Get
+		Set
+			If (String.Equals(Me._booking_by, value) = false) Then
+				Me.Onbooking_byChanging(value)
+				Me.SendPropertyChanging
+				Me._booking_by = value
+				Me.SendPropertyChanged("booking_by")
+				Me.Onbooking_byChanged
 			End If
 		End Set
 	End Property
@@ -1637,6 +1659,8 @@ Partial Public Class loan_account1
 	
 	Private _la1_period As String
 	
+	Private _booking_by As String
+	
 	Private _contract_acc1s As EntitySet(Of contract_acc1)
 	
 	Private _loan_acc1_transactions As EntitySet(Of loan_acc1_transaction)
@@ -1665,6 +1689,10 @@ Partial Public Class loan_account1
     Partial Private Sub Onla1_periodChanging(value As String)
     End Sub
     Partial Private Sub Onla1_periodChanged()
+    End Sub
+    Partial Private Sub Onbooking_byChanging(value As String)
+    End Sub
+    Partial Private Sub Onbooking_byChanged()
     End Sub
     #End Region
 	
@@ -1740,6 +1768,22 @@ Partial Public Class loan_account1
 				Me._la1_period = value
 				Me.SendPropertyChanged("la1_period")
 				Me.Onla1_periodChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_booking_by", CanBeNull:=false)>  _
+	Public Property booking_by() As String
+		Get
+			Return Me._booking_by
+		End Get
+		Set
+			If (String.Equals(Me._booking_by, value) = false) Then
+				Me.Onbooking_byChanging(value)
+				Me.SendPropertyChanging
+				Me._booking_by = value
+				Me.SendPropertyChanged("booking_by")
+				Me.Onbooking_byChanged
 			End If
 		End Set
 	End Property
@@ -1845,6 +1889,8 @@ Partial Public Class loan_account2
 	
 	Private _la2_period As String
 	
+	Private _booking_by As String
+	
 	Private _contract_acc2s As EntitySet(Of contract_acc2)
 	
 	Private _loan_acc2_transactions As EntitySet(Of loan_acc2_transaction)
@@ -1873,6 +1919,10 @@ Partial Public Class loan_account2
     Partial Private Sub Onla2_periodChanging(value As String)
     End Sub
     Partial Private Sub Onla2_periodChanged()
+    End Sub
+    Partial Private Sub Onbooking_byChanging(value As String)
+    End Sub
+    Partial Private Sub Onbooking_byChanged()
     End Sub
     #End Region
 	
@@ -1948,6 +1998,22 @@ Partial Public Class loan_account2
 				Me._la2_period = value
 				Me.SendPropertyChanged("la2_period")
 				Me.Onla2_periodChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_booking_by", CanBeNull:=false)>  _
+	Public Property booking_by() As String
+		Get
+			Return Me._booking_by
+		End Get
+		Set
+			If (String.Equals(Me._booking_by, value) = false) Then
+				Me.Onbooking_byChanging(value)
+				Me.SendPropertyChanging
+				Me._booking_by = value
+				Me.SendPropertyChanged("booking_by")
+				Me.Onbooking_byChanged
 			End If
 		End Set
 	End Property

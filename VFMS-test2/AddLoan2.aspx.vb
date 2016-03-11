@@ -34,6 +34,7 @@
 
 
         RunLoanID()
+        gv_showloan2.DataBind()
     End Sub
 
     Public Sub RunLoanID()
@@ -108,7 +109,7 @@
                 ctx.loan_account2s.InsertOnSubmit(TbAcc)
                 ctx.contract_acc2s.InsertOnSubmit(TbCon)
                 ctx.SubmitChanges()
-
+                gv_showloan2.DataBind()
             Catch ex As Exception
                 Throw ex
             End Try

@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Dividend
+Partial Public Class Dividend2
 
     '''<summary>
     '''lbl_MoneyLoan1 control.

@@ -34,7 +34,7 @@
             bottom: -40px;
             width: auto;
             height: auto;
-            background-image: url("images/w_login.jpg");
+            background-image: url("images/wallpaper.png");
             background-size: cover;
             -webkit-filter: blur(5px);
             z-index: 0;

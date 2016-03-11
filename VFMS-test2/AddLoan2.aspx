@@ -24,163 +24,163 @@
 
     <!-- Main content -->
     <section class="content">
-        <div class="row">
-            <div class="col-md-6">
+        <%--<div class="row">--%>
+            <%--<div class="col-md-6">--%>
 
-                <div class="box box-info">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">กรอกข้อมูล</h3>
-                        <div class="box-tools pull-right">
-                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-                        </div>
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">กรอกข้อมูล</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body form-horizontal ">
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">เลขที่สมาชิก</label>
-                            <div class="col-sm-10">
-                                <dx:ASPxComboBox ID="cmb_Number" ClientInstanceName="CIN_cmb_Number" runat="server"
-                                    CssClass="form-control" Width="27%" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
-                                    DataSourceID="lds_Member" TextField="mem_id" ValueField="mem_name"
-                                    EnableCallbackMode="True" CallbackPageSize="20" Font-Size="15">
-                                    <ClientSideEvents SelectedIndexChanged="function(s, e) { OnName(e);}" />
-                                </dx:ASPxComboBox>
-                                <asp:LinqDataSource ID="lds_Member" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
-                                    Select="new (mem_name, mem_id)" TableName="members" EntityTypeName="">
-                                </asp:LinqDataSource>
-                                <script lang="javascript" type="text/javascript">
-
-                                    function OnName(e) {
-                                        var name = CIN_cmb_Number.GetValue();
-                                        CIN_txt_Name.SetValue(name);
-                                    }
-
-                                </script>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
-                            <div class="col-sm-10">
-                                <dx:ASPxLabel ID="txt_Names" runat="server" ClientInstanceName="CIN_txt_Name" Width="170px"></dx:ASPxLabel>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">เลขที่ผู้กู้</label>
-                            <div class="col-sm-10">
-                                <asp:Label ID="lbl_Number" runat="server" Class="col-sm-2" Text="555" Font-Size="16"></asp:Label>
-                                <%--<dx:ASPxLabel ID="lbl_Number" runat="server" Class="col-sm-2" ></dx:ASPxLabel>--%>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">วันที่กู้</label>
-                            <div class="col-sm-10">
-                                <dx:ASPxDateEdit ID="ASPxDate" runat="server" CssClass="form-control" Width="40%"></dx:ASPxDateEdit>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">จำนวนเงิน</label>
-                            <div class="col-sm-2">
-                                <asp:TextBox ID="txt_Money" runat="server" class="form-control" Width="100%"></asp:TextBox>
-                            </div>
-                            <div class="col-sm-2 ">
-                                <label for="inputPassword3" class="col-sm-2 control-label">บาท</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">ระยะเวลากู้</label>
-                            <div class="col-sm-2">
-                                <asp:TextBox ID="txt_TimeLoan" runat="server" class="form-control" Width="100%"></asp:TextBox>
-                            </div>
-                            <div class="col-sm-2 ">
-                                <label for="inputPassword3" class="col-sm-2 control-label">เดือน</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">ดอกเบี้ย</label>
-                            <div class="col-sm-2">
-                                <asp:TextBox ID="txt_Interest" runat="server" class="form-control" Width="100%"></asp:TextBox>
-                            </div>
-                            <div class="col-sm-2 ">
-                                <label for="inputPassword3" class="col-sm-2 control-label">%</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">ผู้ค่ำคนที่ 1</label>
-                            <div class="col-sm-10">
-                                <dx:ASPxComboBox ID="cmb_con1" ClientInstanceName="CIN_cmb_con1" runat="server"
-                                    CssClass="form-control" Width="27%" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
-                                    DataSourceID="lds_Member1" TextField="mem_id" ValueField="mem_name"
-                                    EnableCallbackMode="True" CallbackPageSize="20" Font-Size="15">
-                                    <ClientSideEvents SelectedIndexChanged="function(s, e) { OnName1(e);}" />
-                                </dx:ASPxComboBox>
-                                <asp:LinqDataSource ID="lds_Member1" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
-                                    Select="new (mem_name, mem_id)" TableName="members" EntityTypeName="">
-                                </asp:LinqDataSource>
-                                <script lang="javascript" type="text/javascript">
-
-                                    function OnName1(e) {
-                                        var name = CIN_cmb_con1.GetValue();
-                                        CIN_txt_Name1.SetValue(name);
-                                    }
-
-                                </script>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
-                            <div class="col-sm-10">
-                                <dx:ASPxLabel ID="txt_Name1" runat="server" ClientInstanceName="CIN_txt_Name1" Width="170px"></dx:ASPxLabel>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">ผู้ค่ำคนที่ 2</label>
-                            <div class="col-sm-10">
-                                <dx:ASPxComboBox ID="cmb_con2" ClientInstanceName="CIN_cmb_con2" runat="server"
-                                    CssClass="form-control" Width="27%" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
-                                    DataSourceID="lds_Member2" TextField="mem_id" ValueField="mem_name"
-                                    EnableCallbackMode="True" CallbackPageSize="20" Font-Size="15">
-                                    <ClientSideEvents SelectedIndexChanged="function(s, e) { OnName2(e);}" />
-                                </dx:ASPxComboBox>
-                                <asp:LinqDataSource ID="lds_Member2" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
-                                    Select="new (mem_name, mem_id)" TableName="members" EntityTypeName="">
-                                </asp:LinqDataSource>
-                                <script lang="javascript" type="text/javascript">
-
-                                    function OnName2(e) {
-                                        var name = CIN_cmb_con2.GetValue();
-                                        CIN_txt_Name2.SetValue(name);
-                                    }
-
-                                </script>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
-                            <div class="col-sm-10">
-                                <dx:ASPxLabel ID="txt_Name2" runat="server" ClientInstanceName="CIN_txt_Name2" Width="170px"></dx:ASPxLabel>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <dx:ASPxLabel ID="lbl_Error" runat="server" Text="" Visible="true" ForeColor="Red" Style="text-align: center">
-                            </dx:ASPxLabel>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-
-                                <button type="submit" id="btn_Save" runat="server" class="btn btn-info t"><i class="fa fa-save">&nbsp;บันทึก</i></button>
-                                <button type="submit" id="btn_cancel" runat="server" class="btn btn-success " style="margin-right: 5px;"><i class="fa trash-o">ยกเลิก</i></button>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.box-body -->
-
-                    <!-- /.box-footer -->
                 </div>
+                <!-- /.box-header -->
+                <div class="box-body form-horizontal ">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">เลขที่สมาชิก</label>
+                        <div class="col-sm-10">
+                            <dx:ASPxComboBox ID="cmb_Number" ClientInstanceName="CIN_cmb_Number" runat="server"
+                                CssClass="form-control" Width="27%" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
+                                DataSourceID="lds_Member" TextField="mem_id" ValueField="mem_name"
+                                EnableCallbackMode="True" CallbackPageSize="20" Font-Size="12">
+                                <ClientSideEvents SelectedIndexChanged="function(s, e) { OnName(e);}" />
+                            </dx:ASPxComboBox>
+                            <asp:LinqDataSource ID="lds_Member" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
+                                Select="new (mem_name, mem_id)" TableName="members" EntityTypeName="">
+                            </asp:LinqDataSource>
+                            <script lang="javascript" type="text/javascript">
+
+                                function OnName(e) {
+                                    var name = CIN_cmb_Number.GetValue();
+                                    CIN_txt_Name.SetValue(name);
+                                }
+
+                            </script>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
+                        <div class="col-sm-10">
+                            <dx:ASPxLabel ID="txt_Names" runat="server" ClientInstanceName="CIN_txt_Name" Width="170px"></dx:ASPxLabel>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">เลขที่ผู้กู้</label>
+                        <div class="col-sm-10">
+                            <asp:Label ID="lbl_Number" runat="server" Class="col-sm-2" Text="555" Font-Size="14"></asp:Label>
+                            <%--<dx:ASPxLabel ID="lbl_Number" runat="server" Class="col-sm-2" ></dx:ASPxLabel>--%>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">วันที่กู้</label>
+                        <div class="col-sm-10">
+                            <dx:ASPxDateEdit ID="ASPxDate" runat="server" CssClass="form-control" Width="20%"></dx:ASPxDateEdit>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">จำนวนเงิน</label>
+                        <div class="col-sm-2">
+                            <asp:TextBox ID="txt_Money" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <label for="inputPassword3" class="col-sm-2 control-label">บาท</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">ระยะเวลากู้</label>
+                        <div class="col-sm-2">
+                            <asp:TextBox ID="txt_TimeLoan" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <label for="inputPassword3" class="col-sm-2 control-label">เดือน</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">ดอกเบี้ย</label>
+                        <div class="col-sm-2">
+                            <asp:TextBox ID="txt_Interest" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <label for="inputPassword3" class="col-sm-2 control-label">%</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">ผู้ค่ำคนที่ 1</label>
+                        <div class="col-sm-10">
+                            <dx:ASPxComboBox ID="cmb_con1" ClientInstanceName="CIN_cmb_con1" runat="server"
+                                CssClass="form-control" Width="27%" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
+                                DataSourceID="lds_Member1" TextField="mem_id" ValueField="mem_name"
+                                EnableCallbackMode="True" CallbackPageSize="20" Font-Size="12">
+                                <ClientSideEvents SelectedIndexChanged="function(s, e) { OnName1(e);}" />
+                            </dx:ASPxComboBox>
+                            <asp:LinqDataSource ID="lds_Member1" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
+                                Select="new (mem_name, mem_id)" TableName="members" EntityTypeName="">
+                            </asp:LinqDataSource>
+                            <script lang="javascript" type="text/javascript">
+
+                                function OnName1(e) {
+                                    var name = CIN_cmb_con1.GetValue();
+                                    CIN_txt_Name1.SetValue(name);
+                                }
+
+                            </script>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
+                        <div class="col-sm-10">
+                            <dx:ASPxLabel ID="txt_Name1" runat="server" ClientInstanceName="CIN_txt_Name1" Width="170px"></dx:ASPxLabel>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">ผู้ค่ำคนที่ 2</label>
+                        <div class="col-sm-10">
+                            <dx:ASPxComboBox ID="cmb_con2" ClientInstanceName="CIN_cmb_con2" runat="server"
+                                CssClass="form-control" Width="27%" DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
+                                DataSourceID="lds_Member2" TextField="mem_id" ValueField="mem_name"
+                                EnableCallbackMode="True" CallbackPageSize="20" Font-Size="12">
+                                <ClientSideEvents SelectedIndexChanged="function(s, e) { OnName2(e);}" />
+                            </dx:ASPxComboBox>
+                            <asp:LinqDataSource ID="lds_Member2" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
+                                Select="new (mem_name, mem_id)" TableName="members" EntityTypeName="">
+                            </asp:LinqDataSource>
+                            <script lang="javascript" type="text/javascript">
+
+                                function OnName2(e) {
+                                    var name = CIN_cmb_con2.GetValue();
+                                    CIN_txt_Name2.SetValue(name);
+                                }
+
+                            </script>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
+                        <div class="col-sm-10">
+                            <dx:ASPxLabel ID="txt_Name2" runat="server" ClientInstanceName="CIN_txt_Name2" Width="170px"></dx:ASPxLabel>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <dx:ASPxLabel ID="lbl_Error" runat="server" Text="" Visible="true" ForeColor="Red" Style="text-align: center">
+                        </dx:ASPxLabel>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+
+                            <button type="submit" id="btn_Save" runat="server" class="btn btn-info t"><i class="fa fa-save">&nbsp;บันทึก</i></button>
+                            <button type="submit" id="btn_cancel" runat="server" class="btn btn-success " style="margin-right: 5px;"><i class="fa trash-o">ยกเลิก</i></button>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+
+                <!-- /.box-footer -->
             </div>
+            <%-- </div>--%>
             <!-- /.col (left) -->
-            <div class="col-md-6">
+            <%-- <div class="col-md-6">
 
                 <div class="box box-danger">
                     <div class="box-header with-border">
@@ -193,34 +193,23 @@
                     <!-- /.box-header -->
                     <div class="box-body form-horizontal ">
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">เลขที่ผู้กู้</label>
-                            <div class="col-sm-10">
-                                <asp:Label ID="lbl_NumberLoan2" runat="server" Class="col-sm-2" Text="555" Font-Size="16"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label">อับโหลด</label>
                             <div class="col-sm-2">
                                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                                 </asp:ScriptManager>
 
-                                <dx:ASPxUploadControl ID="ulc_ProposalFile" runat="server" ShowUploadButton="True" CssClass="form"
-                                    ShowProgressPanel="True" Width="280px">
+                                <dx:ASPxUploadControl ID="ulc_GeneralFile" runat="server" ShowUploadButton="True"
+                                    ShowProgressPanel="True" OnFileUploadComplete="UploadControl_FileUploadComplete"
+                                    Width="280px">
                                     <ValidationSettings AllowedFileExtensions=".pdf,.doc,.docx,.xlsx,.xls" ShowErrors="false" />
                                     <ClientSideEvents FileUploadComplete="OnFileUploadComplete" />
                                 </dx:ASPxUploadControl>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">ชื่อผู้กู้</label>
-                            <div class="col-sm-10">
-                                <dx:ASPxLabel ID="lbl_PCompanyName" runat="server" CssClass="col-sm-2 control-label" />
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">เอกสารทั้งหมด</label>
                             <div class="col-sm-10">
-                                <dx:ASPxGridView ID="gv_PFile" runat="server" KeyFieldName="P_FileID" CssClass="table" Width="80%">
+                                <dx:ASPxGridView ID="gv_GFile" runat="server" Width="100%" KeyFieldName="G_FileID">
                                     <Settings ShowColumnHeaders="false" />
                                     <Columns>
                                         <dx:GridViewDataColumn>
@@ -230,7 +219,7 @@
                                                 </asp:HyperLink>
                                             </DataItemTemplate>
                                         </dx:GridViewDataColumn>
-                                        <dx:GridViewDataDateColumn FieldName="P_FileDate" Visible="false" SortOrder="Descending">
+                                        <dx:GridViewDataDateColumn FieldName="G_FileDate" Visible="false" SortOrder="Descending">
                                         </dx:GridViewDataDateColumn>
                                     </Columns>
                                 </dx:ASPxGridView>
@@ -241,11 +230,11 @@
 
                     <!-- /.box-footer -->
                 </div>
-            </div>
+            </div>--%>
             <!-- /.col (right) -->
 
-        </div>
-        <!-- /.row -->
+        <%--</div>
+        <!-- /.row -->--%>
 
         <div class="box box-success">
             <div class="box-header">
@@ -256,94 +245,87 @@
                 </div>
             </div>
             <div class="box-body">
-                <dx:ASPxGridView ID="ASPxGridView1" runat="server" CssClass="table">
+                <dx:ASPxGridView ID="gv_showloan2" runat="server" CssClass="table" DataSourceID="sds_showloan1">
                     <Columns>
-                        <dx:GridViewDataTextColumn Caption="รหัสสมาชิก" FieldName="Q_Date" VisibleIndex="2"
+                        <dx:GridViewDataTextColumn Caption="รหัสสมาชิก" FieldName="mem_id" VisibleIndex="2"
                             Width="5%">
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_ContactCompany" runat="server" Text='<%# Eval("company_name") %>'>
+                                <asp:Label ID="lbl_memId" runat="server" Text='<%# Eval("mem_id")%>'>
                                 </asp:Label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="ชื่อ - สกุล" FieldName="company_name" VisibleIndex="4"
+                        <dx:GridViewDataTextColumn Caption="ชื่อ - สกุล" FieldName="mem_name" VisibleIndex="4"
                             Width="15%">
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_ContactCompany" runat="server" Text='<%# Eval("company_name") %>'>
+                                <asp:Label ID="lbl_memName" runat="server" Text='<%# Eval("mem_name")%>'>
                                 </asp:Label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="เลขที่กู้เงิน" FieldName="Title" VisibleIndex="9" Width="5%">
+                        <dx:GridViewDataTextColumn Caption="เลขที่กู้เงิน" FieldName="lmem_id" VisibleIndex="9" Width="5%">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("Title") %>'>
+                                <asp:TextBox ID="lbl_lmemId" runat="server" Text='<%# Eval("lmem_id")%>'>
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="จำนวนเงินกู้" FieldName="Title" VisibleIndex="10" Width="10%">
+                        <dx:GridViewDataTextColumn Caption="จำนวนเงินกู้" FieldName="cacc2_amount" VisibleIndex="10" Width="10%">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("Title") %>'>
+                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("cacc2_amount")%>'>
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="ระยะเวลากู้" FieldName="Title" VisibleIndex="11" Width="10%">
+                        <dx:GridViewDataTextColumn Caption="ระยะเวลากู้" FieldName="cacc2_period" VisibleIndex="11" Width="10%">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("Title") %>'>
+                                <asp:TextBox ID="TextBox2" runat="server" Text='<%# Eval("cacc2_period")%>'>
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="ดอกเบี้ย" FieldName="Title" VisibleIndex="12" Width="10%">
+                        <dx:GridViewDataTextColumn Caption="ดอกเบี้ย" FieldName="cacc2_int_rate" VisibleIndex="12" Width="10%">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("Title") %>'>
+                                <asp:TextBox ID="TextBox3" runat="server" Text='<%# Eval("cacc2_int_rate")%>'>
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="ผู้ค้ำคนที่ 1" FieldName="Title" VisibleIndex="13" Width="10%">
+                        <dx:GridViewDataTextColumn Caption="ผู้ค้ำคนที่ 1" FieldName="cacc2_person1" VisibleIndex="13" Width="10%">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("Title") %>'>
+                                <asp:TextBox ID="TextBox4" runat="server" Text='<%# Eval("cacc2_person1")%>'>
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="ผู้ค้ำคนที่ 2" FieldName="Title" VisibleIndex="14" Width="10%">
+                        <dx:GridViewDataTextColumn Caption="ผู้ค้ำคนที่ 2" FieldName="cacc2_person2" VisibleIndex="14" Width="10%">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("Title") %>'>
+                                <asp:TextBox ID="TextBox5" runat="server" Text='<%# Eval("cacc2_person2")%>'>
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="เจ้าหน้าที่" FieldName="Title" VisibleIndex="15" Width="10%">
+                        <dx:GridViewDataTextColumn Caption="เจ้าหน้าที่" FieldName="booking_by" VisibleIndex="15" Width="10%">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Note" runat="server" Text='<%# Bind("Title") %>'>
+                                <asp:TextBox ID="TextBox6" runat="server" Text='<%# Eval("booking_by")%>'>
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewCommandColumn ButtonType="Image" VisibleIndex="16" ShowInCustomizationForm="True"
-                            Width="8%" Caption="แก้ไข">
-                            <EditButton Visible="True">
-                                <Image AlternateText="Edit" Url="../images/edit.png">
-                                </Image>
-                            </EditButton>
-                            <UpdateButton Visible="True">
-                                <Image AlternateText="Update" Url="../images/disk.png">
-                                </Image>
-                            </UpdateButton>
-                            <CancelButton Visible="True">
-                                <Image AlternateText="Cancel" Url="../images/cancel.gif">
-                                </Image>
-                            </CancelButton>
-                        </dx:GridViewCommandColumn>
+
                     </Columns>
-                    <SettingsPager Visible="False">
+                    <Settings ShowFilterRow="True" />
+                    <SettingsPager Visible="True">
                     </SettingsPager>
                 </dx:ASPxGridView>
+                <asp:SqlDataSource ID="sds_showloan1" runat="server" ConnectionString="<%$ ConnectionStrings:vfms_dbConnectionString%>"
+                    SelectCommand="SELECT loan_member.mem_id, member.mem_name, loan_account2.lmem_id, cacc2_amount, cacc2_period, cacc2_int_rate, cacc2_person1, cacc2_person2, loan_account2.booking_by
+                    FROM contract_acc2
+                    INNER JOIN loan_account2 ON contract_acc2.la2_id = loan_account2.la2_id
+                    INNER JOIN loan_member ON loan_account2.lmem_id = loan_member.lmem_id
+                    INNER JOIN member ON loan_member.mem_id = member.mem_id"></asp:SqlDataSource>
             </div>
             <!-- /.box-body -->
         </div>

@@ -254,7 +254,8 @@
     <Content Include="dist\js\demo.js" />
     <Content Include="dist\js\pages\dashboard.js" />
     <Content Include="dist\js\pages\dashboard2.js" />
-    <Content Include="Dividend1.aspx" />
+    <Content Include="Dividend2.aspx" />
+    <Content Include="images\wallpaper.png" />
     <Content Include="ShowDividend.aspx" />
     <Content Include="documentation\build\include\adminlte-options.html" />
     <Content Include="documentation\build\include\advice.html" />
@@ -421,39 +422,6 @@
       <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="pages\calendar.html" />
-    <Content Include="pages\charts\chartjs.html" />
-    <Content Include="pages\charts\flot.html" />
-    <Content Include="pages\charts\inline.html" />
-    <Content Include="pages\charts\morris.html" />
-    <Content Include="pages\examples\404.html" />
-    <Content Include="pages\examples\500.html" />
-    <Content Include="pages\examples\blank.html" />
-    <Content Include="pages\examples\invoice-print.html" />
-    <Content Include="pages\examples\invoice.html" />
-    <Content Include="pages\examples\lockscreen.html" />
-    <Content Include="pages\examples\login.html" />
-    <Content Include="pages\examples\profile.html" />
-    <Content Include="pages\examples\register.html" />
-    <Content Include="pages\forms\advanced.html" />
-    <Content Include="pages\forms\editors.html" />
-    <Content Include="pages\forms\general.html" />
-    <Content Include="pages\layout\boxed.html" />
-    <Content Include="pages\layout\collapsed-sidebar.html" />
-    <Content Include="pages\layout\fixed.html" />
-    <Content Include="pages\layout\top-nav.html" />
-    <Content Include="pages\mailbox\compose.html" />
-    <Content Include="pages\mailbox\mailbox.html" />
-    <Content Include="pages\mailbox\read-mail.html" />
-    <Content Include="pages\tables\data.html" />
-    <Content Include="pages\tables\simple.html" />
-    <Content Include="pages\UI\buttons.html" />
-    <Content Include="pages\UI\general.html" />
-    <Content Include="pages\UI\icons.html" />
-    <Content Include="pages\UI\modals.html" />
-    <Content Include="pages\UI\sliders.html" />
-    <Content Include="pages\UI\timeline.html" />
-    <Content Include="pages\widgets.html" />
     <Content Include="plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="plugins\bootstrap-slider\slider.css" />
     <Content Include="plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
@@ -1292,11 +1260,11 @@
       <DependentUpon>Deposit.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Dividend1.aspx.designer.vb">
-      <DependentUpon>Dividend1.aspx</DependentUpon>
+    <Compile Include="Dividend2.aspx.designer.vb">
+      <DependentUpon>Dividend2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dividend1.aspx.vb">
-      <DependentUpon>Dividend1.aspx</DependentUpon>
+    <Compile Include="Dividend2.aspx.vb">
+      <DependentUpon>Dividend2.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="ShowDividend.aspx.designer.vb">

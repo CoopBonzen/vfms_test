@@ -25,6 +25,7 @@
         If String.IsNullOrEmpty(Session("Username")) Then Response.Redirect("~/Login1.aspx")
         Dim RequestQId = Request.QueryString("qId")
 
+        gv_deposit.DataBind()
     End Sub
 
     Public Function FindNextDRunningNo(ByVal ctx As vfmsDataContext)
@@ -53,11 +54,12 @@
                     .dtrans_timestamp = ASPxDate.Text.Trim
                     .dtrans_amount = money
                     .mem_id = memberNo
+                    .booking_by = Session("Username")
                 End With
 
                 ctx.depo_transactions.InsertOnSubmit(TbAcMoney)
                 ctx.SubmitChanges()
-
+                gv_deposit.DataBind()
             Catch ex As Exception
                 Throw ex
             End Try

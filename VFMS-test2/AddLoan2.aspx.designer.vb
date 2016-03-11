@@ -167,56 +167,20 @@ Partial Public Class AddLoan2
     Protected WithEvents btn_cancel As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
-    '''lbl_NumberLoan2 control.
+    '''gv_showloan2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lbl_NumberLoan2 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents gv_showloan2 As Global.DevExpress.Web.ASPxGridView.ASPxGridView
 
     '''<summary>
-    '''ScriptManager1 control.
+    '''sds_showloan1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
-
-    '''<summary>
-    '''ulc_ProposalFile control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ulc_ProposalFile As Global.DevExpress.Web.ASPxUploadControl.ASPxUploadControl
-
-    '''<summary>
-    '''lbl_PCompanyName control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lbl_PCompanyName As Global.DevExpress.Web.ASPxEditors.ASPxLabel
-
-    '''<summary>
-    '''gv_PFile control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents gv_PFile As Global.DevExpress.Web.ASPxGridView.ASPxGridView
-
-    '''<summary>
-    '''ASPxGridView1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ASPxGridView1 As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+    Protected WithEvents sds_showloan1 As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

@@ -167,11 +167,20 @@ Partial Public Class AddLoan1
     Protected WithEvents btn_cancel As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
-    '''ASPxGridView1 control.
+    '''gv_showloan1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ASPxGridView1 As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+    Protected WithEvents gv_showloan1 As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+
+    '''<summary>
+    '''sds_showloan1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sds_showloan1 As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

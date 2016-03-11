@@ -38,6 +38,7 @@
       <Column Name="dtrans_timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="dtrans_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="mem_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Member="booking_by" Type="System.String" CanBeNull="false" />
       <Association Name="deposit_account_depo_transaction" Member="deposit_account" ThisKey="mem_id" OtherKey="mem_id" Type="deposit_account" IsForeignKey="true" />
     </Type>
   </Table>
@@ -82,6 +83,7 @@
       <Column Name="lmem_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="la1_balance" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="la1_period" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Member="booking_by" Type="System.String" CanBeNull="false" />
       <Association Name="loan_account1_contract_acc1" Member="contract_acc1s" ThisKey="la1_id" OtherKey="la1_id" Type="contract_acc1" />
       <Association Name="loan_account1_loan_acc1_transaction" Member="loan_acc1_transactions" ThisKey="la1_id" OtherKey="la1_id" Type="loan_acc1_transaction" />
       <Association Name="loan_member_loan_account1" Member="loan_member" ThisKey="lmem_id" OtherKey="lmem_id" Type="loan_member" IsForeignKey="true" />
@@ -93,6 +95,7 @@
       <Column Name="lmem_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="la2_balance" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="la2_period" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Member="booking_by" Type="System.String" CanBeNull="false" />
       <Association Name="loan_account2_contract_acc2" Member="contract_acc2s" ThisKey="la2_id" OtherKey="la2_id" Type="contract_acc2" />
       <Association Name="loan_account2_loan_acc2_transaction" Member="loan_acc2_transactions" ThisKey="la2_id" OtherKey="la2_id" Type="loan_acc2_transaction" />
       <Association Name="loan_member_loan_account2" Member="loan_member" ThisKey="lmem_id" OtherKey="lmem_id" Type="loan_member" IsForeignKey="true" />

@@ -42,7 +42,7 @@ Public Class AddLoan1
 
 
         RunLoanID()
-
+        gv_showloan1.DataBind()
         'If (Not IsCallback) Then
         '    FillAttnCombo(Session("mem_id"))
         'End If
@@ -184,7 +184,7 @@ Public Class AddLoan1
                 End With
                 ctx.contract_acc1s.InsertOnSubmit(TbCon)
                 ctx.SubmitChanges()
-
+                gv_showloan1.DataBind()
             Catch ex As Exception
                 Throw ex
             End Try

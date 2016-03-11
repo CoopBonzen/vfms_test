@@ -14,11 +14,20 @@ Option Explicit On
 Partial Public Class ShowDeposit
 
     '''<summary>
-    '''ASPxGridView1 control.
+    '''gv_deposit control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ASPxGridView1 As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+    Protected WithEvents gv_deposit As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+
+    '''<summary>
+    '''sds_depo_transaction control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sds_depo_transaction As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

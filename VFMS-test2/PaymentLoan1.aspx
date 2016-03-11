@@ -36,7 +36,6 @@
                             DataSourceID="lds_Member" TextField="mem_id" ValueField="mem_id"
                             EnableCallbackMode="True" CallbackPageSize="20">
                             <ClientSideEvents SelectedIndexChanged="function(s, e) {OnValueChanged(s); }"></ClientSideEvents>
-                          
                         </dx:ASPxComboBox>
                         <asp:LinqDataSource ID="lds_Member" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
                             Select="new (mem_id, mem_name)"
@@ -46,8 +45,8 @@
 
                             function OnValueChanged(CIN_cmb_Number) {
                                 CIN_cmb_Loan.PerformCallback(CIN_cmb_Number.GetValue().toString());
-                              
-                            }                         
+
+                            }
 
                         </script>
                     </div>
@@ -58,7 +57,7 @@
                         <dx:ASPxComboBox ID="cmb_Loan" ClientInstanceName="CIN_cmb_Loan" runat="server"
                             Width="20%" Height="20px"
                             DropDownStyle="DropDown" IncrementalFilteringMode="Contains"
-                            DataSourceID="ldr_Loan" TextField="lmem_id" ValueField="mem_id">
+                            DataSourceID="ldr_Loan" TextField="lmem_id" ValueField="lmem_id">
                             <ClientSideEvents SelectedIndexChanged="function(s, e) { OnData(s); }"></ClientSideEvents>
                         </dx:ASPxComboBox>
                         <asp:LinqDataSource ID="ldr_Loan" runat="server" ContextTypeName="VFMS_test2.vfmsDataContext"
@@ -68,12 +67,19 @@
                                     DefaultValue="1" />
                             </WhereParameters>
                         </asp:LinqDataSource>
+                        <script type="text/javascript">
+
+                            function OnData(cmb_Loan) {
+                                CIN_cmb_Loan.PerformCallback(cmb_Loan.GetValue());
+                            }
+
+                        </script>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
                     <div class="col-sm-6">
-                         <dx:ASPxLabel ID="txt_Name" runat="server" ClientInstanceName="CIN_txt_Name" Width="170px"></dx:ASPxLabel>
+                        <dx:ASPxLabel ID="txt_Name" runat="server" ClientInstanceName="CIN_txt_Name" Width="170px"></dx:ASPxLabel>
                     </div>
                 </div>
                 <div class="form-group">
