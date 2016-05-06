@@ -40,17 +40,17 @@
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">ชื่อ-สกุล</label>
                         <div class="col-sm-10">
-                            <asp:TextBox ID="txt_Name" runat="server" class="form-control" Width="40%"></asp:TextBox>
+                            <asp:TextBox ID="txt_Name" runat="server" class="form-control" Width="30%"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">ที่อยู่</label>
                         <div class="col-sm-10">
-                            <%--<textarea id="txt_Address" runat="server" class="form-control" rows="3">บ้านเลขที่    หมู่ที่ 4 ตำบลมาโมง อำเภอสุคิริน จังหวัดนราธิวาส</textarea>--%>
-                            <dx:ASPxMemo ID="ASPx_Address" runat="server" cssclass="form-control" Height="80px" Width="200px" Text="บ้านเลขที่    หมู่ที่ 4 ตำบลมาโมง อำเภอสุคิริน จังหวัดนราธิวาส"></dx:ASPxMemo>
+                            <asp:TextBox ID="txt_Address" runat="server" class="form-control" Width="30%" Height="50px" Text="บ้านเลขที่    หมู่ที่ 4 ตำบลมาโมง อำเภอสุคิริน จังหวัดนราธิวาส"></asp:TextBox>
+                            <%--<dx:ASPxMemo ID="ASPx_Address" runat="server" CssClass="form-control" Height="80%" Width="30%" Text="บ้านเลขที่    หมู่ที่ 4 ตำบลมาโมง อำเภอสุคิริน จังหวัดนราธิวาส"></dx:ASPxMemo>--%>
                         </div>
                     </div>
-                    <div class="form-group">    
+                    <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">เลขที่บัตรประชาชน</label>
                         <div class="col-sm-10">
                             <asp:TextBox ID="txt_ID" runat="server" class="form-control" placeholder="0-0000-00000-00-0" Width="30%"></asp:TextBox>
@@ -59,7 +59,7 @@
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">วันที่สมัคร</label>
                         <div class="col-sm-10">
-                            <dx:ASPxDateEdit ID="ASPxDateEdit1" runat="server" CssClass="form-control" Width="20%"></dx:ASPxDateEdit>
+                            <dx:ASPxDateEdit ID="ASPxDateEdit1" runat="server" CssClass="form-control" Width="15%" Height="30px"></dx:ASPxDateEdit>
                         </div>
                     </div>
                     <div class="form-group">
@@ -68,14 +68,14 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                           <asp:Button id="btn_Save" runat="server" class="btn btn-info" Text="บันทึก" ></asp:Button>
+                            <button type="submit" id="btn_Save" runat="server" class="btn btn-info">บันทึก</button>
+                            <button type="button" id="btn_Uploan" runat="server" class="btn btn-danger">อัปเดต</button>
                             <button type="submit" id="btn_cancel" runat="server" class="btn btn-success " style="margin-right: 5px;"><i class="fa trash-o">ยกเลิก</i></button>
 
                         </div>
                     </div>
                 </div>
                 <!-- /.box-body -->
-
                 <!-- /.box-footer -->
             </div>
         </div>
@@ -90,16 +90,20 @@
                 </div>
             </div>
             <div class="box-body">
-               <dx:ASPxGridView ID="gv_addmember" ClientInstanceName="gv_addmember" runat="server" CssClass="table"
+                <dx:ASPxGridView ID="gv_addmember" ClientInstanceName="gv_addmember" runat="server" CssClass="table"
                     DataSourceID="sds_addmember" KeyFieldName="mem_id">
                     <Columns>
                         <dx:GridViewDataTextColumn Caption="รหัสสมาชิก" FieldName="mem_id" ReadOnly="True"
                             VisibleIndex="0" Width="8%" SortOrder="Descending">
                             <EditCellStyle HorizontalAlign="Center">
                             </EditCellStyle>
+                            <DataItemTemplate>
+                                <asp:LinkButton ID="lnk_MId" runat="server" Text='<%# Eval("mem_id")%>' CommandName="AddMember"
+                                    CommandArgument='<%# Eval("mem_id")%>' OnCommand="ListItem_Command">
+                                </asp:LinkButton>
+                            </DataItemTemplate>
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_mem_id" runat="server" Text='<%# Eval("mem_id")%>'>
-                                </asp:Label>
+                                <asp:Label ID="lbl_mem_id" runat="server" Text='<%# Eval("mem_id")%>'></asp:Label>
                             </EditItemTemplate>
                             <CellStyle HorizontalAlign="Center">
                             </CellStyle>
@@ -128,13 +132,14 @@
                             </EditCellStyle>
                             <EditItemTemplate>
                                 <asp:TextBox ID="txt_memcard" runat="server" Text='<%# Bind("mem_id_card")%>'>
-
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataDateColumn Caption="วันที่สมัคร" FieldName="mem_reg_date" VisibleIndex="4"
                             Width="8%">
+                            <EditCellStyle HorizontalAlign="Center">
+                            </EditCellStyle>
                             <EditItemTemplate>
                                 <asp:Label ID="lbl_QDate" runat="server" Text='<%# Eval("mem_reg_date", "{0:d/MM/yyyy}")%>'>
                                 </asp:Label>
@@ -160,7 +165,7 @@
                         </dx:GridViewCommandColumn>
                     </Columns>
                     <SettingsEditing Mode="Inline" />
-                    <Settings ShowFilterRow="True" />
+                    <Settings ShowFilterRow="false" />
                 </dx:ASPxGridView>
                 <asp:SqlDataSource ID="sds_addmember" runat="server" ConnectionString="<%$ ConnectionStrings:vfms_dbConnectionString%>"
                     SelectCommand="SELECT mem_id, mem_name, mem_address, mem_id_card, mem_reg_date FROM member"

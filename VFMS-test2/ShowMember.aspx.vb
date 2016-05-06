@@ -5,4 +5,10 @@
 
     End Sub
 
+    Protected Sub ListItem_Command(ByVal sender As Object, ByVal e As CommandEventArgs)
+        Select Case e.CommandName
+            Case "AddMember"
+                Response.Redirect("AddMember.aspx?mId=" & e.CommandArgument)
+        End Select
+    End Sub
 End Class

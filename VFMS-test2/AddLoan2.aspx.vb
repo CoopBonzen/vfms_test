@@ -30,7 +30,7 @@
     End Function
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If String.IsNullOrEmpty(Session("Username")) Then Response.Redirect("~/Login.aspx")
+        If String.IsNullOrEmpty(Session("Username")) Then Response.Redirect("~/Login1.aspx")
 
 
         RunLoanID()

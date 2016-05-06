@@ -32,13 +32,13 @@ Partial Public Class AddMember
     Protected WithEvents txt_Name As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''ASPx_Address control.
+    '''txt_Address control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ASPx_Address As Global.DevExpress.Web.ASPxEditors.ASPxMemo
+    Protected WithEvents txt_Address As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''txt_ID control.
@@ -74,7 +74,16 @@ Partial Public Class AddMember
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btn_Save As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btn_Save As Global.System.Web.UI.HtmlControls.HtmlButton
+
+    '''<summary>
+    '''btn_Uploan control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btn_Uploan As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
     '''btn_cancel control.

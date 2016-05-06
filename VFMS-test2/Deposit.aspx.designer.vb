@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Deposit
 
     '''<summary>
+    '''lbl_Number control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_Number As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
     '''cmb_Number control.
     '''</summary>
     '''<remarks>
@@ -75,6 +84,15 @@ Partial Public Class Deposit
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btn_Save As Global.System.Web.UI.HtmlControls.HtmlButton
+
+    '''<summary>
+    '''btn_Uploan control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btn_Uploan As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
     '''btn_cancel control.

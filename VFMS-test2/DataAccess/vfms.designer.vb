@@ -49,12 +49,6 @@ Partial Public Class vfmsDataContext
     End Sub
   Partial Private Sub Deletedepo_interest(instance As depo_interest)
     End Sub
-  Partial Private Sub Insertdepo_transaction(instance As depo_transaction)
-    End Sub
-  Partial Private Sub Updatedepo_transaction(instance As depo_transaction)
-    End Sub
-  Partial Private Sub Deletedepo_transaction(instance As depo_transaction)
-    End Sub
   Partial Private Sub Insertdeposit_account(instance As deposit_account)
     End Sub
   Partial Private Sub Updatedeposit_account(instance As deposit_account)
@@ -121,6 +115,12 @@ Partial Public Class vfmsDataContext
     End Sub
   Partial Private Sub Deleteusergroup_role(instance As usergroup_role)
     End Sub
+  Partial Private Sub Insertdepo_transaction(instance As depo_transaction)
+    End Sub
+  Partial Private Sub Updatedepo_transaction(instance As depo_transaction)
+    End Sub
+  Partial Private Sub Deletedepo_transaction(instance As depo_transaction)
+    End Sub
   #End Region
 	
 	Public Sub New()
@@ -163,12 +163,6 @@ Partial Public Class vfmsDataContext
 	Public ReadOnly Property depo_interests() As System.Data.Linq.Table(Of depo_interest)
 		Get
 			Return Me.GetTable(Of depo_interest)
-		End Get
-	End Property
-	
-	Public ReadOnly Property depo_transactions() As System.Data.Linq.Table(Of depo_transaction)
-		Get
-			Return Me.GetTable(Of depo_transaction)
 		End Get
 	End Property
 	
@@ -235,6 +229,12 @@ Partial Public Class vfmsDataContext
 	Public ReadOnly Property usergroup_roles() As System.Data.Linq.Table(Of usergroup_role)
 		Get
 			Return Me.GetTable(Of usergroup_role)
+		End Get
+	End Property
+	
+	Public ReadOnly Property depo_transactions() As System.Data.Linq.Table(Of depo_transaction)
+		Get
+			Return Me.GetTable(Of depo_transaction)
 		End Get
 	End Property
 End Class
@@ -812,190 +812,6 @@ Partial Public Class depo_interest
 					Me._mem_id = CType(Nothing, String)
 				End If
 				Me.SendPropertyChanged("member")
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.depo_transaction")>  _
-Partial Public Class depo_transaction
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _dtrans_id As Integer
-	
-	Private _dtrans_timestamp As System.Nullable(Of Date)
-	
-	Private _dtrans_amount As System.Nullable(Of Decimal)
-	
-	Private _mem_id As String
-	
-	Private _booking_by As String
-	
-	Private _deposit_account As EntityRef(Of deposit_account)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub Ondtrans_idChanging(value As Integer)
-    End Sub
-    Partial Private Sub Ondtrans_idChanged()
-    End Sub
-    Partial Private Sub Ondtrans_timestampChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub Ondtrans_timestampChanged()
-    End Sub
-    Partial Private Sub Ondtrans_amountChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub Ondtrans_amountChanged()
-    End Sub
-    Partial Private Sub Onmem_idChanging(value As String)
-    End Sub
-    Partial Private Sub Onmem_idChanged()
-    End Sub
-    Partial Private Sub Onbooking_byChanging(value As String)
-    End Sub
-    Partial Private Sub Onbooking_byChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._deposit_account = CType(Nothing, EntityRef(Of deposit_account))
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_dtrans_id", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
-	Public Property dtrans_id() As Integer
-		Get
-			Return Me._dtrans_id
-		End Get
-		Set
-			If ((Me._dtrans_id = value)  _
-						= false) Then
-				Me.Ondtrans_idChanging(value)
-				Me.SendPropertyChanging
-				Me._dtrans_id = value
-				Me.SendPropertyChanged("dtrans_id")
-				Me.Ondtrans_idChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_dtrans_timestamp", DbType:="DateTime")>  _
-	Public Property dtrans_timestamp() As System.Nullable(Of Date)
-		Get
-			Return Me._dtrans_timestamp
-		End Get
-		Set
-			If (Me._dtrans_timestamp.Equals(value) = false) Then
-				Me.Ondtrans_timestampChanging(value)
-				Me.SendPropertyChanging
-				Me._dtrans_timestamp = value
-				Me.SendPropertyChanged("dtrans_timestamp")
-				Me.Ondtrans_timestampChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_dtrans_amount", DbType:="Decimal(18,2)")>  _
-	Public Property dtrans_amount() As System.Nullable(Of Decimal)
-		Get
-			Return Me._dtrans_amount
-		End Get
-		Set
-			If (Me._dtrans_amount.Equals(value) = false) Then
-				Me.Ondtrans_amountChanging(value)
-				Me.SendPropertyChanging
-				Me._dtrans_amount = value
-				Me.SendPropertyChanged("dtrans_amount")
-				Me.Ondtrans_amountChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_mem_id", DbType:="VarChar(50)")>  _
-	Public Property mem_id() As String
-		Get
-			Return Me._mem_id
-		End Get
-		Set
-			If (String.Equals(Me._mem_id, value) = false) Then
-				If Me._deposit_account.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.Onmem_idChanging(value)
-				Me.SendPropertyChanging
-				Me._mem_id = value
-				Me.SendPropertyChanged("mem_id")
-				Me.Onmem_idChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_booking_by", CanBeNull:=false)>  _
-	Public Property booking_by() As String
-		Get
-			Return Me._booking_by
-		End Get
-		Set
-			If (String.Equals(Me._booking_by, value) = false) Then
-				Me.Onbooking_byChanging(value)
-				Me.SendPropertyChanging
-				Me._booking_by = value
-				Me.SendPropertyChanged("booking_by")
-				Me.Onbooking_byChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="deposit_account_depo_transaction", Storage:="_deposit_account", ThisKey:="mem_id", OtherKey:="mem_id", IsForeignKey:=true)>  _
-	Public Property deposit_account() As deposit_account
-		Get
-			Return Me._deposit_account.Entity
-		End Get
-		Set
-			Dim previousValue As deposit_account = Me._deposit_account.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._deposit_account.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._deposit_account.Entity = Nothing
-					previousValue.depo_transactions.Remove(Me)
-				End If
-				Me._deposit_account.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.depo_transactions.Add(Me)
-					Me._mem_id = value.mem_id
-				Else
-					Me._mem_id = CType(Nothing, String)
-				End If
-				Me.SendPropertyChanged("deposit_account")
 			End If
 		End Set
 	End Property
@@ -3060,6 +2876,211 @@ Partial Public Class usergroup_role
 					Me._user_group_id = CType(Nothing, Integer)
 				End If
 				Me.SendPropertyChanged("usergroup")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.depo_transaction")>  _
+Partial Public Class depo_transaction
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _dtrans_id As String
+	
+	Private _dtrans_timestamp As System.Nullable(Of Date)
+	
+	Private _dtrans_amount As System.Nullable(Of Decimal)
+	
+	Private _mem_id As String
+	
+	Private _booking_by As String
+	
+	Private _runningNo As System.Nullable(Of Integer)
+	
+	Private _deposit_account As EntityRef(Of deposit_account)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub Ondtrans_idChanging(value As String)
+    End Sub
+    Partial Private Sub Ondtrans_idChanged()
+    End Sub
+    Partial Private Sub Ondtrans_timestampChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub Ondtrans_timestampChanged()
+    End Sub
+    Partial Private Sub Ondtrans_amountChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub Ondtrans_amountChanged()
+    End Sub
+    Partial Private Sub Onmem_idChanging(value As String)
+    End Sub
+    Partial Private Sub Onmem_idChanged()
+    End Sub
+    Partial Private Sub Onbooking_byChanging(value As String)
+    End Sub
+    Partial Private Sub Onbooking_byChanged()
+    End Sub
+    Partial Private Sub OnrunningNoChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnrunningNoChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._deposit_account = CType(Nothing, EntityRef(Of deposit_account))
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_dtrans_id", DbType:="VarChar(50) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property dtrans_id() As String
+		Get
+			Return Me._dtrans_id
+		End Get
+		Set
+			If (String.Equals(Me._dtrans_id, value) = false) Then
+				Me.Ondtrans_idChanging(value)
+				Me.SendPropertyChanging
+				Me._dtrans_id = value
+				Me.SendPropertyChanged("dtrans_id")
+				Me.Ondtrans_idChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_dtrans_timestamp", DbType:="DateTime")>  _
+	Public Property dtrans_timestamp() As System.Nullable(Of Date)
+		Get
+			Return Me._dtrans_timestamp
+		End Get
+		Set
+			If (Me._dtrans_timestamp.Equals(value) = false) Then
+				Me.Ondtrans_timestampChanging(value)
+				Me.SendPropertyChanging
+				Me._dtrans_timestamp = value
+				Me.SendPropertyChanged("dtrans_timestamp")
+				Me.Ondtrans_timestampChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_dtrans_amount", DbType:="Decimal(18,2)")>  _
+	Public Property dtrans_amount() As System.Nullable(Of Decimal)
+		Get
+			Return Me._dtrans_amount
+		End Get
+		Set
+			If (Me._dtrans_amount.Equals(value) = false) Then
+				Me.Ondtrans_amountChanging(value)
+				Me.SendPropertyChanging
+				Me._dtrans_amount = value
+				Me.SendPropertyChanged("dtrans_amount")
+				Me.Ondtrans_amountChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_mem_id", DbType:="VarChar(50)")>  _
+	Public Property mem_id() As String
+		Get
+			Return Me._mem_id
+		End Get
+		Set
+			If (String.Equals(Me._mem_id, value) = false) Then
+				If Me._deposit_account.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.Onmem_idChanging(value)
+				Me.SendPropertyChanging
+				Me._mem_id = value
+				Me.SendPropertyChanged("mem_id")
+				Me.Onmem_idChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_booking_by", DbType:="VarChar(50)")>  _
+	Public Property booking_by() As String
+		Get
+			Return Me._booking_by
+		End Get
+		Set
+			If (String.Equals(Me._booking_by, value) = false) Then
+				Me.Onbooking_byChanging(value)
+				Me.SendPropertyChanging
+				Me._booking_by = value
+				Me.SendPropertyChanged("booking_by")
+				Me.Onbooking_byChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_runningNo", DbType:="Int")>  _
+	Public Property runningNo() As System.Nullable(Of Integer)
+		Get
+			Return Me._runningNo
+		End Get
+		Set
+			If (Me._runningNo.Equals(value) = false) Then
+				Me.OnrunningNoChanging(value)
+				Me.SendPropertyChanging
+				Me._runningNo = value
+				Me.SendPropertyChanged("runningNo")
+				Me.OnrunningNoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="deposit_account_depo_transaction", Storage:="_deposit_account", ThisKey:="mem_id", OtherKey:="mem_id", IsForeignKey:=true)>  _
+	Public Property deposit_account() As deposit_account
+		Get
+			Return Me._deposit_account.Entity
+		End Get
+		Set
+			Dim previousValue As deposit_account = Me._deposit_account.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._deposit_account.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._deposit_account.Entity = Nothing
+					previousValue.depo_transactions.Remove(Me)
+				End If
+				Me._deposit_account.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.depo_transactions.Add(Me)
+					Me._mem_id = value.mem_id
+				Else
+					Me._mem_id = CType(Nothing, String)
+				End If
+				Me.SendPropertyChanged("deposit_account")
 			End If
 		End Set
 	End Property
