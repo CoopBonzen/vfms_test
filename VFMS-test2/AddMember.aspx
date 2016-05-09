@@ -95,8 +95,6 @@
                     <Columns>
                         <dx:GridViewDataTextColumn Caption="รหัสสมาชิก" FieldName="mem_id" ReadOnly="True"
                             VisibleIndex="0" Width="8%" SortOrder="Descending">
-                            <EditCellStyle HorizontalAlign="Center">
-                            </EditCellStyle>
                             <DataItemTemplate>
                                 <asp:LinkButton ID="lnk_MId" runat="server" Text='<%# Eval("mem_id")%>' CommandName="AddMember"
                                     CommandArgument='<%# Eval("mem_id")%>' OnCommand="ListItem_Command">

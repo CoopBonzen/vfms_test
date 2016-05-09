@@ -14,13 +14,13 @@ Option Explicit On
 Partial Public Class ShowLoan2
 
     '''<summary>
-    '''gv_showloan1 control.
+    '''gv_showloan2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents gv_showloan1 As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+    Protected WithEvents gv_showloan2 As Global.DevExpress.Web.ASPxGridView.ASPxGridView
 
     '''<summary>
     '''sds_showloan1 control.

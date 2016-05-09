@@ -2,28 +2,15 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If String.IsNullOrEmpty(Session("Username")) Then Response.Redirect("~/Login1.aspx")
 
     End Sub
 
     Private Sub CIN_cmb_Loan_Callback(ByVal sender As Object, e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cmb_Loan.Callback
-        'FillAttnCombo(e.Parameter)
-        'cmb_Loan.DataBind()
-
-        'If IsNumeric(cmb_Loan.Value) Then
-        '    Dim LoanId As Integer = CInt(cmb_Loan.Value)
-        '    Dim companyData As  = GetLoanData(LoanId)
-        '    txt_tel.Text = companyData.tel_number
-        '    txt_fax.Text = companyData.fax
-        '    txt_email.Text = companyData.mail
-        'End If
+        cmb_Loan.DataBind()
+        'ShowData(e.Parameter)
     End Sub
 
-    Protected Sub FillAttnCombo(ByVal name As String)
-        If String.IsNullOrEmpty(name) Then
-            Return
-        End If
-        Session("Name_ID") = name
-    End Sub
 
     'Public Function GetCompanyData(ByVal companyId As Integer) As vw_Company
     '    'แก้ให้ดึงข้อมูลจาก DB ของ Salesapp
@@ -32,4 +19,37 @@
     '        Return companyList
     '    End Using
     'End Function
+
+
+    Public Function chkMemberByNO(ByVal lno As String) As member
+        Dim loan As New member
+        Using ctx = New vfmsDataContext
+            loan = (From q In ctx.members Where q.mem_id = lno).SingleOrDefault
+        End Using
+        Return loan
+    End Function
+
+    'Public Sub ShowData(ByVal lno As String)
+    '    Using ctx As New vfmsDataContext
+    '        Dim loan As New member
+    '        loan = chkMemberByNO(lno)
+    '        If loan IsNot Nothing Then
+    '            btn_Save.Visible = False
+    '            'btn_Uploan.Visible = True
+    '            With loan
+
+    '                txt_Name.Text = .mem_name
+
+    '            End With
+
+    '        Else
+
+    '            btn_Save.Visible = True
+    '            'btn_Uploan.Visible = False
+    '            btn_cancel.Visible = True
+    '        End If
+    '    End Using
+    'End Sub
+
+    
 End Class

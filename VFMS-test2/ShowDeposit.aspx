@@ -82,10 +82,10 @@
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="เงินฝากทั้งหมด" FieldName="depo_total" VisibleIndex="6"
+                        <dx:GridViewDataTextColumn Caption="เงินฝากทั้งหมด" FieldName="dtrans_total" VisibleIndex="6"
                             Width="8%">
                             <EditItemTemplate>
-                                <asp:Label ID="lbl_money" runat="server" Text='<%# Eval("depo_total")%>'></asp:Label>
+                                <asp:Label ID="lbl_money" runat="server" Text='<%# Eval("dtrans_total")%>'></asp:Label>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
@@ -117,19 +117,20 @@
                     <Settings ShowFilterRow="True" />
                 </dx:ASPxGridView>
                 <asp:SqlDataSource ID="sds_depo_transaction" runat="server" ConnectionString="<%$ ConnectionStrings:vfms_dbConnectionString%>"
-                    SelectCommand="SELECT dtrans_id, dtrans_timestamp, dtrans_amount, depo_transaction.mem_id, member.mem_name,booking_by,deposit_account.depo_total FROM depo_transaction
+                    SelectCommand="SELECT dtrans_id, dtrans_timestamp, dtrans_amount, depo_transaction.dtrans_total, depo_transaction.mem_id, member.mem_name,booking_by,deposit_account.depo_total FROM depo_transaction
                                     INNER JOIN member ON depo_transaction.mem_id = member.mem_id
                                     INNER JOIN deposit_account ON depo_transaction.mem_id = deposit_account.mem_id"
                     UpdateCommand="UPDATE [depo_transaction] SET  [dtrans_amount] = @dtrans_amount WHERE [dtrans_id] = @dtrans_id"
                     DeleteCommand="DELETE FROM [depo_transaction] WHERE [dtrans_id] = @dtrans_id"
-                    InsertCommand="INSERT INTO [depo_transaction] ([dtrans_id], [dtrans_timestamp], [dtrans_amount], [mem_id], [mem_name], [booking_by]) 
-                    VALUES (@dtrans_id, @dtrans_timestamp, @dtrans_amount, @mem_id, @mem_name, @booking_by)">
+                    InsertCommand="INSERT INTO [depo_transaction] ([dtrans_id], [dtrans_timestamp], [dtrans_amount], [dtrans_total], [mem_id], [mem_name], [booking_by]) 
+                    VALUES (@dtrans_id, @dtrans_timestamp, @dtrans_amount, @dtrans_total, @mem_id, @mem_name, @booking_by)">
                     <DeleteParameters>
                         <asp:Parameter Name="dtrans_id" Type="String" />
                     </DeleteParameters>
                     <InsertParameters>
                         <asp:Parameter Name="dtrans_id" Type="String" />
                         <asp:Parameter Name="dtrans_amount" Type="String" />
+                        <asp:Parameter Name="dtrans_total" Type="String" />
                         <asp:Parameter Name="mem_id" Type="String" />
                         <asp:Parameter Name="mem_name" Type="String" />
                         <asp:Parameter Name="booking_by" Type="String" />

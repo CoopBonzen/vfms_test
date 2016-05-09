@@ -32,13 +32,13 @@ Partial Public Class AddLoan2
     Protected WithEvents lds_Member As Global.System.Web.UI.WebControls.LinqDataSource
 
     '''<summary>
-    '''txt_Names control.
+    '''txt_Name control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txt_Names As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+    Protected WithEvents txt_Name As Global.DevExpress.Web.ASPxEditors.ASPxLabel
 
     '''<summary>
     '''lbl_Number control.
@@ -156,6 +156,15 @@ Partial Public Class AddLoan2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btn_Save As Global.System.Web.UI.HtmlControls.HtmlButton
+
+    '''<summary>
+    '''btn_Uploan control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btn_Uploan As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
     '''btn_cancel control.

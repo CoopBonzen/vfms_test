@@ -13,7 +13,6 @@
     Public Const PrivUploadFileProposal As String = "จัดการเงินปันผล"
     Public Const PrivUploadFileGeneral As String = "จัดการพนักงาน"
 
-    Public Const PrivManageUserAndUserGroup As String = ""
 
 #Region "Privilege"
     Public Class PrivilegeInfo
@@ -70,8 +69,6 @@
             .Add(New PrivilegeInfo With {.Name = PrivUploadFileQuotation, .Text = "แก้ไขข้อมูลผู้กู้"})
             .Add(New PrivilegeInfo With {.Name = PrivUploadFileProposal, .Text = "จัดการเงินปันผล"})
             .Add(New PrivilegeInfo With {.Name = PrivUploadFileGeneral, .Text = "จัดการพนักงาน"})
-
-            .Add(New PrivilegeInfo With {.Name = PrivManageUserAndUserGroup, .Text = ""})
 
             End With
     End Sub

@@ -7,7 +7,7 @@
 <html>
 <head runat="server">
     <meta charset="UTF-8">
-    <title>Random Login Form</title>
+    <title>Login VFMS</title>
 
 
 

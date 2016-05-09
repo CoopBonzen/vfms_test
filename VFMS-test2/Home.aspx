@@ -15,7 +15,7 @@
             </section>
 
             <!-- Main content -->
-     <section class="content">
+    <%-- <section class="content">
 
          <div class="box box-info">
             <div class="box-header">
@@ -308,5 +308,5 @@
             <!-- /.box-body -->
         </div>
         
-    </section>
+    </section>--%>
 </asp:Content>

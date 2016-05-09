@@ -9,7 +9,6 @@
       <Column Name="cacc1_int_rate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="cacc1_person1" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="cacc1_person2" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Association Name="loan_account1_contract_acc1" Member="loan_account1" ThisKey="la1_id" OtherKey="la1_id" Type="loan_account1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.contract_acc2" Member="contract_acc2s">
@@ -21,7 +20,6 @@
       <Column Name="cacc2_int_rate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="cacc2_person1" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="cacc2_person2" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Association Name="loan_account2_contract_acc2" Member="loan_account2" ThisKey="la2_id" OtherKey="la2_id" Type="loan_account2" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.depo_interest" Member="depo_interests">
@@ -49,48 +47,6 @@
       <Association Name="loan_member_dividend" Member="loan_member" ThisKey="lmem_id" OtherKey="lmem_id" Type="loan_member" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.loan_acc1_transaction" Member="loan_acc1_transactions">
-    <Type Name="loan_acc1_transaction">
-      <Column Name="la1_trans_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="la1_trans_timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="la1_trans_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="la1_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="loan_account1_loan_acc1_transaction" Member="loan_account1" ThisKey="la1_id" OtherKey="la1_id" Type="loan_account1" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.loan_acc2_transaction" Member="loan_acc2_transactions">
-    <Type Name="loan_acc2_transaction">
-      <Column Name="la2_trans_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="la2_trans_timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="la2_trans_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="la2_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="loan_account2_loan_acc2_transaction" Member="loan_account2" ThisKey="la2_id" OtherKey="la2_id" Type="loan_account2" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.loan_account1" Member="loan_account1s">
-    <Type Name="loan_account1">
-      <Column Name="la1_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="lmem_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="la1_balance" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="la1_period" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="booking_by" Type="System.String" CanBeNull="false" />
-      <Association Name="loan_account1_contract_acc1" Member="contract_acc1s" ThisKey="la1_id" OtherKey="la1_id" Type="contract_acc1" />
-      <Association Name="loan_account1_loan_acc1_transaction" Member="loan_acc1_transactions" ThisKey="la1_id" OtherKey="la1_id" Type="loan_acc1_transaction" />
-      <Association Name="loan_member_loan_account1" Member="loan_member" ThisKey="lmem_id" OtherKey="lmem_id" Type="loan_member" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.loan_account2" Member="loan_account2s">
-    <Type Name="loan_account2">
-      <Column Name="la2_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="lmem_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="la2_balance" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="la2_period" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="booking_by" Type="System.String" CanBeNull="false" />
-      <Association Name="loan_account2_contract_acc2" Member="contract_acc2s" ThisKey="la2_id" OtherKey="la2_id" Type="contract_acc2" />
-      <Association Name="loan_account2_loan_acc2_transaction" Member="loan_acc2_transactions" ThisKey="la2_id" OtherKey="la2_id" Type="loan_acc2_transaction" />
-      <Association Name="loan_member_loan_account2" Member="loan_member" ThisKey="lmem_id" OtherKey="lmem_id" Type="loan_member" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.loan_member" Member="loan_members">
     <Type Name="loan_member">
       <Column Name="lmem_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -98,8 +54,6 @@
       <Column Name="lmem_reg_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="lmem_runningNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="loan_member_dividend" Member="dividends" ThisKey="lmem_id" OtherKey="lmem_id" Type="dividend" />
-      <Association Name="loan_member_loan_account1" Member="loan_account1s" ThisKey="lmem_id" OtherKey="lmem_id" Type="loan_account1" />
-      <Association Name="loan_member_loan_account2" Member="loan_account2s" ThisKey="lmem_id" OtherKey="lmem_id" Type="loan_account2" />
       <Association Name="member_loan_member" Member="member" ThisKey="mem_id" OtherKey="mem_id" Type="member" IsForeignKey="true" />
     </Type>
   </Table>
@@ -114,6 +68,8 @@
       <Association Name="member_depo_interest" Member="depo_interests" ThisKey="mem_id" OtherKey="mem_id" Type="depo_interest" />
       <Association Name="member_deposit_account" Member="deposit_account" ThisKey="mem_id" OtherKey="mem_id" Type="deposit_account" Cardinality="One" />
       <Association Name="member_loan_member" Member="loan_members" ThisKey="mem_id" OtherKey="mem_id" Type="loan_member" />
+      <Association Name="member_loan_member_acc1" Member="loan_member_acc1s" ThisKey="mem_id" OtherKey="mem_id" Type="loan_member_acc1" />
+      <Association Name="member_loan_member_acc2" Member="loan_member_acc2s" ThisKey="mem_id" OtherKey="mem_id" Type="loan_member_acc2" />
     </Type>
   </Table>
   <Table Name="dbo.[user]" Member="users">
@@ -144,11 +100,84 @@
       <Association Name="usergroup_usergroup_role" Member="usergroup" ThisKey="user_group_id" OtherKey="user_group_id" Type="usergroup" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.loan_account1" Member="loan_account1s">
+    <Type Name="loan_account1">
+      <Column Name="lmem1_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="la1_balance" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="loan_account1_loan_member_acc1" Member="loan_member_acc1" ThisKey="lmem1_id" OtherKey="lmem1_id" Type="loan_member_acc1" Cardinality="One" />
+      <Association Name="loan_account1_loan_acc1_transaction" Member="loan_acc1_transactions" ThisKey="lmem1_id" OtherKey="lmem1_id" Type="loan_acc1_transaction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.loan_member_acc1" Member="loan_member_acc1s">
+    <Type Name="loan_member_acc1">
+      <Column Name="lmem1_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="mem_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="lmem1_reg_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="cacc1_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="cacc1_period" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cacc1_int_rate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cacc1_person1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cacc1_person2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="booking_by" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="runningNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="loan_account1_loan_member_acc1" Member="loan_account1" ThisKey="lmem1_id" OtherKey="lmem1_id" Type="loan_account1" IsForeignKey="true" />
+      <Association Name="member_loan_member_acc1" Member="member" ThisKey="mem_id" OtherKey="mem_id" Type="member" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.loan_acc1_transaction" Member="loan_acc1_transactions">
+    <Type Name="loan_acc1_transaction">
+      <Column Name="la1_trans_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="lmem1_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="la1_trans_timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="la1_trans_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="la1_trans_rate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="booking_by" Type="System.Data.Linq.Binary" DbType="VarBinary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="runningNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="loan_account1_loan_acc1_transaction" Member="loan_account1" ThisKey="lmem1_id" OtherKey="lmem1_id" Type="loan_account1" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.loan_member_acc2" Member="loan_member_acc2s">
+    <Type Name="loan_member_acc2">
+      <Column Name="lmem2_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="mem_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="lmem2_reg_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="cacc2_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="cacc2_period" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cacc2_int_rate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cacc2_person1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cacc2_person2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="booking_by" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="runningNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="member_loan_member_acc2" Member="member" ThisKey="mem_id" OtherKey="mem_id" Type="member" IsForeignKey="true" />
+      <Association Name="loan_account2_loan_member_acc2" Member="loan_account2" ThisKey="lmem2_id" OtherKey="lmem2_id" Type="loan_account2" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.loan_account2" Member="loan_account2s">
+    <Type Name="loan_account2">
+      <Column Name="lmem2_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="la2_balance" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="loan_account2_loan_member_acc2" Member="loan_member_acc2" ThisKey="lmem2_id" OtherKey="lmem2_id" Type="loan_member_acc2" Cardinality="One" />
+      <Association Name="loan_account2_loan_acc2_transaction" Member="loan_acc2_transactions" ThisKey="lmem2_id" OtherKey="lmem2_id" Type="loan_acc2_transaction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.loan_acc2_transaction" Member="loan_acc2_transactions">
+    <Type Name="loan_acc2_transaction">
+      <Column Name="la2_trans_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="lmem2_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="la2_trans_timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="la2_trans_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="la1_trans_rate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="booking_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="runningNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="loan_account2_loan_acc2_transaction" Member="loan_account2" ThisKey="lmem2_id" OtherKey="lmem2_id" Type="loan_account2" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.depo_transaction" Member="depo_transactions">
     <Type Name="depo_transaction">
       <Column Name="dtrans_id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="dtrans_timestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="dtrans_amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="dtrans_total" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="mem_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="booking_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="runningNo" Type="System.Int32" DbType="Int" CanBeNull="true" />

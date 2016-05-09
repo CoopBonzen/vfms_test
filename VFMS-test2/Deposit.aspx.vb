@@ -64,6 +64,7 @@
                 Dim memberNo As String = cmb_Number.Text.Trim
                 Dim money As String = txt_Money.Text.Trim
                 Dim TbMoney = (From q In ctx.deposit_accounts Where q.mem_id = memberNo).SingleOrDefault
+                Dim changmoney = (From ch In ctx.deposit_accounts Where ch.mem_id = memberNo Select ch.depo_total).SingleOrDefault
                 Dim TbAcMoney As New depo_transaction
                 With TbMoney
                     If txt_Money.Text.Trim = String.Empty Then
@@ -74,16 +75,19 @@
                     End If
                 End With
                 With TbAcMoney
+                    Dim tot = (changmoney + money)
                     .dtrans_id = lbl_Number.Text.Trim
                     .dtrans_timestamp = ASPxDate.Text.Trim
                     .dtrans_amount = money
+                    .dtrans_total = tot
                     .mem_id = memberNo
                     .booking_by = Session("Username")
                     .runningNo = Runing
                 End With
                 ctx.depo_transactions.InsertOnSubmit(TbAcMoney)
                 ctx.SubmitChanges()
-                gv_deposit.DataBind()
+                'gv_deposit.DataBind()
+                Response.Redirect("Deposit.aspx")
             Catch ex As Exception
                 Throw ex
             End Try
@@ -92,10 +96,11 @@
     End Sub
 
     Private Sub btn_cancel_ServerClick(sender As Object, e As EventArgs) Handles btn_cancel.ServerClick
-        cmb_Number.Text = ""
-        txt_Name.Text = ""
-        ASPxDate.Text = ""
-        txt_Money.Text = ""
+        'cmb_Number.Text = ""
+        'txt_Name.Text = ""
+        'ASPxDate.Text = ""
+        'txt_Money.Text = ""
+        Response.Redirect("Deposit.aspx")
     End Sub
 
     Public Sub AddDataInForm(ByVal D_No)
@@ -131,17 +136,6 @@
                 With mem
                     txt_Name.Text = .mem_name
                 End With
-                Dim money As String = txt_Money.Text.Trim
-                Dim TbMoney = (From q In ctx.deposit_accounts Where q.mem_id = memberNo).SingleOrDefault
-                With TbMoney
-                    If txt_Money.Text.Trim = String.Empty Then
-                        txt_Money.Text = 0.0
-                    Else
-                        .mem_id = memberNo
-                        .depo_total = (.depo_total - money)
-                    End If
-                End With
-                ctx.SubmitChanges()
             Else
                 RunMemberID()
                 btn_Save.Visible = True
@@ -150,8 +144,6 @@
             End If
         End Using
     End Sub
-
-
 
     Private Sub btn_Uploan_ServerClick(sender As Object, e As EventArgs) Handles btn_Uploan.ServerClick
         If Not CheckValidatedata() Then Exit Sub
@@ -162,17 +154,21 @@
                 Dim mem As String = lbl_Number.Text.Trim
                 Dim TbMoney = (From q In ctx.deposit_accounts Where q.mem_id = memberNo).SingleOrDefault
                 Dim TbAcMoney = (From m In ctx.depo_transactions Where m.dtrans_id = mem).SingleOrDefault
+                Dim changmoney = (From ch In ctx.depo_transactions Where ch.dtrans_id = mem Select ch.dtrans_amount).SingleOrDefault
                 With TbMoney
                     If txt_Money.Text.Trim = String.Empty Then
                         txt_Money.Text = 0.0
                     Else
-                        .mem_id = memberNo
-                        .depo_total = (.depo_total + money)
+                        Dim totel = (.depo_total - changmoney)
+                        '.mem_id = memberNo
+                        .depo_total = (totel + money)
                     End If
                 End With
                 With TbAcMoney
+                    Dim tot = (.dtrans_total - .dtrans_amount)
                     .dtrans_timestamp = ASPxDate.Text.Trim
                     .dtrans_amount = money
+                    .dtrans_total = (tot + money)
                     .booking_by = Session("Username")
                 End With
                 ctx.SubmitChanges()
