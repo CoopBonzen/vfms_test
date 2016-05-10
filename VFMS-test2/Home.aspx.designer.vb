@@ -12,4 +12,40 @@ Option Explicit On
 
 
 Partial Public Class Home
+
+    '''<summary>
+    '''gv_showmember control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gv_showmember As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+
+    '''<summary>
+    '''sds_showmember control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sds_showmember As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''gv_showloan1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gv_showloan1 As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+
+    '''<summary>
+    '''sds_showloan1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sds_showloan1 As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

@@ -123,31 +123,31 @@
         ShowData(L_No)
     End Sub
 
-    Public Function chkMemberByNO(ByVal lno As String) As loan_member_acc1
-        Dim loan As New loan_member_acc1
+    Public Function chkMemberByNO(ByVal lno As String) As loan_member_acc2
+        Dim loan As New loan_member_acc2
         Using ctx = New vfmsDataContext
-            loan = (From q In ctx.loan_member_acc1s Where q.lmem1_id = lno).SingleOrDefault
+            loan = (From q In ctx.loan_member_acc2s Where q.lmem2_id = lno).SingleOrDefault
         End Using
         Return loan
     End Function
 
     Public Sub ShowData(ByVal lno As String)
         Using ctx As New vfmsDataContext
-            Dim loan As New loan_member_acc1
+            Dim loan As New loan_member_acc2
             loan = chkMemberByNO(lno)
             If loan IsNot Nothing Then
                 btn_Save.Visible = False
                 btn_Uploan.Visible = True
                 With loan
 
-                    lbl_Number.Text = .lmem1_id
+                    lbl_Number.Text = .lmem2_id
                     cmb_Number.Text = .mem_id
-                    ASPxDate.Text = .lmem1_reg_date
-                    txt_Money.Text = .cacc1_amount
-                    txt_TimeLoan.Text = .cacc1_period
-                    txt_Interest.Text = .cacc1_int_rate
-                    cmb_con1.Text = .cacc1_person1
-                    cmb_con2.Text = .cacc1_person2
+                    ASPxDate.Text = .lmem2_reg_date
+                    txt_Money.Text = .cacc2_amount
+                    txt_TimeLoan.Text = .cacc2_period
+                    txt_Interest.Text = .cacc2_int_rate
+                    cmb_con1.Text = .cacc2_person1
+                    cmb_con2.Text = .cacc2_person2
 
                 End With
                 Dim memberNo As String = cmb_Number.Text.Trim

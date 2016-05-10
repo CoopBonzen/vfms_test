@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="box-body">
-                 <dx:ASPxGridView ID="gv_showloan2" ClientInstanceName="gv_showloan2" runat="server" CssClass="table" DataSourceID="sds_showloan1" KeyFieldName="lmem2_id">
+                 <dx:ASPxGridView ID="gv_showloan2" ClientInstanceName="gv_showloan2" runat="server" CssClass="table" DataSourceID="sds_showloan2" KeyFieldName="lmem2_id">
                     <Columns>
                         <dx:GridViewDataTextColumn Caption="เลขที่กู้เงิน" FieldName="lmem2_id" VisibleIndex="1" Width="5%">
                             <EditCellStyle HorizontalAlign="Center">
@@ -37,7 +37,7 @@
                                 </asp:LinkButton>
                             </DataItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="lbl_lmemId" runat="server" Text='<%# Eval("lmem1_id")%>'>
+                                <asp:TextBox ID="lbl_lmemId" runat="server" Text='<%# Eval("lmem2_id")%>'>
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <Settings AutoFilterCondition="Contains" />
@@ -134,7 +134,7 @@
                     </SettingsPager>
                 </dx:ASPxGridView>
                 <asp:SqlDataSource ID="sds_showloan1" runat="server" ConnectionString="<%$ ConnectionStrings:vfms_dbConnectionString%>"
-                    SelectCommand="SELECT  loan_member_acc2.lmem2_id ,loan_member_acc2.mem_id ,loan_member_acc2.lmem1_reg_date ,loan_member_acc2.cacc2_amount,
+                    SelectCommand="SELECT  loan_member_acc2.lmem2_id ,loan_member_acc2.mem_id ,loan_member_acc2.lmem2_reg_date ,loan_member_acc2.cacc2_amount,
                                             loan_member_acc2.cacc2_period ,loan_member_acc2.cacc2_int_rate ,loan_member_acc2.cacc2_person1 ,loan_member_acc2.cacc2_person2,
                                             loan_member_acc2.booking_by ,member.mem_name  
                                             FROM loan_member_acc2 
@@ -156,7 +156,7 @@
                         <asp:Parameter Name="cacc2_person1" Type="String" />
                         <asp:Parameter Name="cacc2_person2" Type="String" />
                         <asp:Parameter Name="booking_by" Type="String" />
-                        <asp:Parameter DbType="Date" Name="lmem1_reg_date" />
+                        <asp:Parameter DbType="Date" Name="lmem2_reg_date" />
                     </InsertParameters>
                     <UpdateParameters>
                         <asp:Parameter Name="cacc2_amount" Type="String" />

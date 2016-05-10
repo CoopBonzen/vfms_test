@@ -85,6 +85,7 @@
                     .runningNo = Runing
                 End With
                 ctx.depo_transactions.InsertOnSubmit(TbAcMoney)
+                ctx.deposit_accounts.InsertOnSubmit(TbMoney)
                 ctx.SubmitChanges()
                 'gv_deposit.DataBind()
                 Response.Redirect("Deposit.aspx")

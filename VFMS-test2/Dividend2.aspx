@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site2.Master" CodeBehind="Dividend2.aspx.vb" Inherits="VFMS_test2.Dividend2" %>
+
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 
@@ -34,7 +35,7 @@
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-4 control-label">ดอกเบี้ยรวม</label>
                             <div class="col-md-2">
-                                <asp:Label ID="lbl_MoneyLoan1" runat="server" Text="555" Font-Size="16"></asp:Label>
+                                <asp:Label ID="lbl_MoneyLoan1" runat="server" Font-Size="16"></asp:Label>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">บาท</label>
@@ -44,74 +45,132 @@
                             <label for="inputPassword3" class="col-sm-6 control-label">แจกแจงบัญชี 1</label>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
+                            <label for="inputEmail3" class="col-sm-4 control-label">ปันผล</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox1" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txt_dividend1" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_dividend1" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox2" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txt_return1" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_return1" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
+                            <label for="inputEmail3" class="col-sm-4 control-label">กรรมการ</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox3" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txt_board1" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_board1" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
+                            <label for="inputEmail3" class="col-sm-4 control-label">สาธารณะ</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox4" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txt_public1" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_public1" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
+                            <label for="inputEmail3" class="col-sm-4 control-label">อื่น ๆ</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox5" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txt_other1" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_other1" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
+                            <label for="inputEmail3" class="col-sm-4 control-label">ประกันความเสี่ยง</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox6" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txt_risk1" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_risk1" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
+                            <label for="inputEmail3" class="col-sm-4 control-label">สมทบ</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox7" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txt_join1" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_join1" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-4 control-label">สวัสดิ์การ</label>
+                            <div class="col-md-2">
+                                <asp:TextBox ID="txt_welfare1" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_welfare1" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label"></label>
                             <div class="col-sm-offset-2 col-xs-12 col-sm-6 col-md-8">
 
-                                <button type="submit" id="btn_Save" runat="server" class="btn btn-info t"><i class="fa fa-save">&nbsp;บันทึก</i></button>
-                                <%--<button type="submit" id="btn_cancel" class="btn btn-success " style="margin-right: 5px;"><i class="fa trash-o">ยกเลิก</i></button>--%>
+                                <button type="submit" id="btn_Dividend1" class="btn btn-success" runat="server" style="margin-right: 5px;"><i class="fa trash-o">แจกแจง</i></button>
+                                <button type="submit" id="btn_Save1" runat="server" class="btn btn-info t"><i class="fa fa-save">&nbsp;บันทึก</i></button>
+
                             </div>
                         </div>
                     </div>
@@ -136,84 +195,141 @@
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-4 control-label">ดอกเบี้ยรวม</label>
                             <div class="col-md-2">
-                                <asp:Label ID="Label1" runat="server" Text="555" Font-Size="16"></asp:Label>
+                                <asp:Label ID="lbl_MoneyLoan2" runat="server" Text="" Font-Size="16"></asp:Label>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-6 control-label">แจกแจงบัญชี 1</label>
+                            <label for="inputPassword3" class="col-sm-6 control-label">แจกแจงบัญชี 2</label>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
+                            <label for="inputEmail3" class="col-sm-4 control-label">ปันผล</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox8" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txt_dividend2" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">%</label>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox9" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:Label ID="lbl_dividend2" runat="server" Text="" Font-Size="16"></asp:Label>
                             </div>
                             <div class="col-md-1">
-                                <label for="inputPassword3" class="control-label ">%</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
-                            <div class="col-md-2">
-                                <asp:TextBox ID="TextBox10" runat="server" class="form-control" Width="100%"></asp:TextBox>
-                            </div>
-                            <div class="col-md-1">
-                                <label for="inputPassword3" class="control-label ">%</label>
+                                <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox11" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txt_return2" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_return2" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
+                            <label for="inputEmail3" class="col-sm-4 control-label">กรรมการ</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox12" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txt_board2" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_board2" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
+                            <label for="inputEmail3" class="col-sm-4 control-label">สาธารณะ</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox13" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txt_public2" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_public2" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-4 control-label">เฉลี่ยคืน</label>
+                            <label for="inputEmail3" class="col-sm-4 control-label">อื่น ๆ</label>
                             <div class="col-md-2">
-                                <asp:TextBox ID="TextBox14" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                                <asp:TextBox ID="txt_other2" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
                             </div>
                             <div class="col-md-1">
                                 <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_other2" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-4 control-label">ประกันความเสี่ยง</label>
+                            <div class="col-md-2">
+                                <asp:TextBox ID="txt_risk2" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_risk2" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-4 control-label">สมทบ</label>
+                            <div class="col-md-2">
+                                <asp:TextBox ID="txt_join2" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_join2" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-4 control-label">สวัสดิ์การ</label>
+                            <div class="col-md-2">
+                                <asp:TextBox ID="txt_welfare2" runat="server" class="form-control" Width="100%" Text="0"></asp:TextBox>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">%</label>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lbl_welfare2" runat="server" Text="" Font-Size="16"></asp:Label>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="inputPassword3" class="control-label ">บาท</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-2 control-label"></label>
                             <div class="col-sm-offset-2 col-xs-12 col-sm-6 col-md-8">
+                                <button type="submit" id="btn_Dividend2" class="btn btn-success" runat="server" style="margin-right: 5px;"><i class="fa trash-o">แจกแจง</i></button>
+                                <button type="submit" id="btn_Save2" runat="server" class="btn btn-info t"><i class="fa fa-save">&nbsp;บันทึก</i></button>
 
-                                <button type="submit" id="Button1" runat="server" class="btn btn-info t"><i class="fa fa-save">&nbsp;บันทึก</i></button>
-                                <%--<button type="submit" id="btn_cancel1" class="btn btn-success " style="margin-right: 5px;"><i class="fa trash-o">ยกเลิก</i></button>--%>
                             </div>
                         </div>
                     </div>
@@ -236,66 +352,45 @@
                     <label for="inputPassword3" class="col-md-6 col-md-offset-2">สรุปปันผล</label>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">เฉลี่ยคืน</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label">เงินฝากทั้งหมด</label>
                     <div class="col-md-2">
-                        <asp:TextBox ID="TextBox15" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                        <asp:TextBox ID="txt_total" runat="server" class="form-control" Width="100%"></asp:TextBox>
                     </div>
                     <div class="col-md-1">
                         <label for="inputPassword3" class="control-label ">%</label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">เฉลี่ยคืน</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label">ปันผลรวม</label>
                     <div class="col-md-2">
-                        <asp:TextBox ID="TextBox16" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                        <asp:TextBox ID="txt_rum" runat="server" class="form-control" Width="100%"></asp:TextBox>
                     </div>
                     <div class="col-md-1">
                         <label for="inputPassword3" class="control-label ">%</label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">เฉลี่ยคืน</label>
+
                     <div class="col-md-2">
-                        <asp:TextBox ID="TextBox17" runat="server" class="form-control" Width="100%"></asp:TextBox>
                     </div>
                     <div class="col-md-1">
-                        <label for="inputPassword3" class="control-label ">%</label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">เฉลี่ยคืน</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label">ปันผลสมาชิก</label>
                     <div class="col-md-2">
-                        <asp:TextBox ID="TextBox18" runat="server" class="form-control" Width="100%"></asp:TextBox>
+                        <asp:TextBox ID="txt_ban" runat="server" class="form-control" Width="100%"></asp:TextBox>
                     </div>
                     <div class="col-md-1">
-                        <label for="inputPassword3" class="control-label ">%</label>
+                        <label for="inputPassword3" class="control-label ">บาท</label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">เฉลี่ยคืน</label>
+                    <label for="inputPassword3" class="col-sm-2 control-label"></label>
                     <div class="col-md-2">
-                        <asp:TextBox ID="TextBox19" runat="server" class="form-control" Width="100%"></asp:TextBox>
-                    </div>
-                    <div class="col-md-1">
-                        <label for="inputPassword3" class="control-label ">%</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">เฉลี่ยคืน</label>
-                    <div class="col-md-2">
-                        <asp:TextBox ID="TextBox20" runat="server" class="form-control" Width="100%"></asp:TextBox>
-                    </div>
-                    <div class="col-md-1">
-                        <label for="inputPassword3" class="control-label ">%</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">เฉลี่ยคืน</label>
-                    <div class="col-md-2">
-                        <asp:TextBox ID="TextBox21" runat="server" class="form-control" Width="100%"></asp:TextBox>
-                    </div>
-                    <div class="col-md-1">
-                        <label for="inputPassword3" class="control-label ">%</label>
+                        <button type="submit" id="btn_cal" class="btn btn-success" runat="server" style="margin-right: 5px;"><i class="fa trash-o">คำนวณ</i></button>
+                        <button type="submit" id="btn_save3" runat="server" class="btn btn-info t"><i class="fa fa-save">&nbsp;บันทึก</i></button>
+
                     </div>
                 </div>
             </div>

@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class PaymentLoan1
 
     '''<summary>
+    '''lbl_Numberloan control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_Numberloan As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
     '''cmb_Number control.
     '''</summary>
     '''<remarks>
@@ -30,6 +39,15 @@ Partial Public Class PaymentLoan1
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lds_Member As Global.System.Web.UI.WebControls.LinqDataSource
+
+    '''<summary>
+    '''btnName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnName As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''cmb_Loan control.
@@ -50,6 +68,15 @@ Partial Public Class PaymentLoan1
     Protected WithEvents ldr_Loan As Global.System.Web.UI.WebControls.LinqDataSource
 
     '''<summary>
+    '''btnCheck control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCheck As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''txt_Name control.
     '''</summary>
     '''<remarks>
@@ -66,15 +93,6 @@ Partial Public Class PaymentLoan1
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lbl_Number As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txt_TimeLoan control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txt_TimeLoan As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''txt_Money1 control.
@@ -113,6 +131,15 @@ Partial Public Class PaymentLoan1
     Protected WithEvents txt_Interest2 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''lbl_Error control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbl_Error As Global.DevExpress.Web.ASPxEditors.ASPxLabel
+
+    '''<summary>
     '''btn_Save control.
     '''</summary>
     '''<remarks>
@@ -120,6 +147,15 @@ Partial Public Class PaymentLoan1
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btn_Save As Global.System.Web.UI.HtmlControls.HtmlButton
+
+    '''<summary>
+    '''btn_Uploan control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btn_Uploan As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
     '''btn_cancel control.
@@ -138,4 +174,13 @@ Partial Public Class PaymentLoan1
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ASPxGridView1 As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+
+    '''<summary>
+    '''sds_loan_acc1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sds_loan_acc1 As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

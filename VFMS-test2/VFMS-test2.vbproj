@@ -43,6 +43,7 @@
     <Reference Include="DevExpress.Data.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxThemes.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v13.1, Version=13.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
@@ -256,6 +257,7 @@
     <Content Include="dist\js\pages\dashboard2.js" />
     <Content Include="Dividend2.aspx" />
     <Content Include="images\wallpaper.png" />
+    <Content Include="report\Report.aspx" />
     <Content Include="ShowDividend.aspx" />
     <Content Include="documentation\build\include\adminlte-options.html" />
     <Content Include="documentation\build\include\advice.html" />
@@ -420,6 +422,18 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>vfms.designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
+    </Content>
+    <Content Include="report\DataSet.xsc">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="My Project\PublishProfiles\VFMS.pubxml" />
+    <None Include="report\DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="report\DataSet.xss">
+      <DependentUpon>DataSet.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="plugins\bootstrap-slider\bootstrap-slider.js" />
@@ -1267,6 +1281,18 @@
       <DependentUpon>Dividend2.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="report\DataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="report\Report.aspx.designer.vb">
+      <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="report\Report.aspx.vb">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="ShowDividend.aspx.designer.vb">
       <DependentUpon>ShowDividend.aspx</DependentUpon>
     </Compile>
@@ -1467,6 +1493,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="report\Report.rdlc" />
     <None Include="DataAccess\vfms.dbml.layout">
       <DependentUpon>vfms.dbml</DependentUpon>
     </None>

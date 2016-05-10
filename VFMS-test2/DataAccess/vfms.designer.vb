@@ -103,12 +103,6 @@ Partial Public Class vfmsDataContext
     End Sub
   Partial Private Sub Deleteloan_member_acc1(instance As loan_member_acc1)
     End Sub
-  Partial Private Sub Insertloan_acc1_transaction(instance As loan_acc1_transaction)
-    End Sub
-  Partial Private Sub Updateloan_acc1_transaction(instance As loan_acc1_transaction)
-    End Sub
-  Partial Private Sub Deleteloan_acc1_transaction(instance As loan_acc1_transaction)
-    End Sub
   Partial Private Sub Insertloan_member_acc2(instance As loan_member_acc2)
     End Sub
   Partial Private Sub Updateloan_member_acc2(instance As loan_member_acc2)
@@ -121,17 +115,23 @@ Partial Public Class vfmsDataContext
     End Sub
   Partial Private Sub Deleteloan_account2(instance As loan_account2)
     End Sub
-  Partial Private Sub Insertloan_acc2_transaction(instance As loan_acc2_transaction)
-    End Sub
-  Partial Private Sub Updateloan_acc2_transaction(instance As loan_acc2_transaction)
-    End Sub
-  Partial Private Sub Deleteloan_acc2_transaction(instance As loan_acc2_transaction)
-    End Sub
   Partial Private Sub Insertdepo_transaction(instance As depo_transaction)
     End Sub
   Partial Private Sub Updatedepo_transaction(instance As depo_transaction)
     End Sub
   Partial Private Sub Deletedepo_transaction(instance As depo_transaction)
+    End Sub
+  Partial Private Sub Insertloan_acc1_transaction(instance As loan_acc1_transaction)
+    End Sub
+  Partial Private Sub Updateloan_acc1_transaction(instance As loan_acc1_transaction)
+    End Sub
+  Partial Private Sub Deleteloan_acc1_transaction(instance As loan_acc1_transaction)
+    End Sub
+  Partial Private Sub Insertloan_acc2_transaction(instance As loan_acc2_transaction)
+    End Sub
+  Partial Private Sub Updateloan_acc2_transaction(instance As loan_acc2_transaction)
+    End Sub
+  Partial Private Sub Deleteloan_acc2_transaction(instance As loan_acc2_transaction)
     End Sub
   #End Region
 	
@@ -232,12 +232,6 @@ Partial Public Class vfmsDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property loan_acc1_transactions() As System.Data.Linq.Table(Of loan_acc1_transaction)
-		Get
-			Return Me.GetTable(Of loan_acc1_transaction)
-		End Get
-	End Property
-	
 	Public ReadOnly Property loan_member_acc2s() As System.Data.Linq.Table(Of loan_member_acc2)
 		Get
 			Return Me.GetTable(Of loan_member_acc2)
@@ -250,15 +244,21 @@ Partial Public Class vfmsDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property loan_acc2_transactions() As System.Data.Linq.Table(Of loan_acc2_transaction)
-		Get
-			Return Me.GetTable(Of loan_acc2_transaction)
-		End Get
-	End Property
-	
 	Public ReadOnly Property depo_transactions() As System.Data.Linq.Table(Of depo_transaction)
 		Get
 			Return Me.GetTable(Of depo_transaction)
+		End Get
+	End Property
+	
+	Public ReadOnly Property loan_acc1_transactions() As System.Data.Linq.Table(Of loan_acc1_transaction)
+		Get
+			Return Me.GetTable(Of loan_acc1_transaction)
+		End Get
+	End Property
+	
+	Public ReadOnly Property loan_acc2_transactions() As System.Data.Linq.Table(Of loan_acc2_transaction)
+		Get
+			Return Me.GetTable(Of loan_acc2_transaction)
 		End Get
 	End Property
 End Class
@@ -2531,233 +2531,6 @@ Partial Public Class loan_member_acc1
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.loan_acc1_transaction")>  _
-Partial Public Class loan_acc1_transaction
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _la1_trans_id As String
-	
-	Private _lmem1_id As String
-	
-	Private _la1_trans_timestamp As System.Nullable(Of Date)
-	
-	Private _la1_trans_amount As System.Nullable(Of Decimal)
-	
-	Private _la1_trans_rate As System.Nullable(Of Decimal)
-	
-	Private _booking_by As System.Data.Linq.Binary
-	
-	Private _runningNo As System.Nullable(Of Integer)
-	
-	Private _loan_account1 As EntityRef(Of loan_account1)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub Onla1_trans_idChanging(value As String)
-    End Sub
-    Partial Private Sub Onla1_trans_idChanged()
-    End Sub
-    Partial Private Sub Onlmem1_idChanging(value As String)
-    End Sub
-    Partial Private Sub Onlmem1_idChanged()
-    End Sub
-    Partial Private Sub Onla1_trans_timestampChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub Onla1_trans_timestampChanged()
-    End Sub
-    Partial Private Sub Onla1_trans_amountChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub Onla1_trans_amountChanged()
-    End Sub
-    Partial Private Sub Onla1_trans_rateChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub Onla1_trans_rateChanged()
-    End Sub
-    Partial Private Sub Onbooking_byChanging(value As System.Data.Linq.Binary)
-    End Sub
-    Partial Private Sub Onbooking_byChanged()
-    End Sub
-    Partial Private Sub OnrunningNoChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnrunningNoChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._loan_account1 = CType(Nothing, EntityRef(Of loan_account1))
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la1_trans_id", DbType:="VarChar(50) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
-	Public Property la1_trans_id() As String
-		Get
-			Return Me._la1_trans_id
-		End Get
-		Set
-			If (String.Equals(Me._la1_trans_id, value) = false) Then
-				Me.Onla1_trans_idChanging(value)
-				Me.SendPropertyChanging
-				Me._la1_trans_id = value
-				Me.SendPropertyChanged("la1_trans_id")
-				Me.Onla1_trans_idChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_lmem1_id", DbType:="VarChar(50)")>  _
-	Public Property lmem1_id() As String
-		Get
-			Return Me._lmem1_id
-		End Get
-		Set
-			If (String.Equals(Me._lmem1_id, value) = false) Then
-				If Me._loan_account1.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.Onlmem1_idChanging(value)
-				Me.SendPropertyChanging
-				Me._lmem1_id = value
-				Me.SendPropertyChanged("lmem1_id")
-				Me.Onlmem1_idChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la1_trans_timestamp", DbType:="DateTime")>  _
-	Public Property la1_trans_timestamp() As System.Nullable(Of Date)
-		Get
-			Return Me._la1_trans_timestamp
-		End Get
-		Set
-			If (Me._la1_trans_timestamp.Equals(value) = false) Then
-				Me.Onla1_trans_timestampChanging(value)
-				Me.SendPropertyChanging
-				Me._la1_trans_timestamp = value
-				Me.SendPropertyChanged("la1_trans_timestamp")
-				Me.Onla1_trans_timestampChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la1_trans_amount", DbType:="Decimal(18,2)")>  _
-	Public Property la1_trans_amount() As System.Nullable(Of Decimal)
-		Get
-			Return Me._la1_trans_amount
-		End Get
-		Set
-			If (Me._la1_trans_amount.Equals(value) = false) Then
-				Me.Onla1_trans_amountChanging(value)
-				Me.SendPropertyChanging
-				Me._la1_trans_amount = value
-				Me.SendPropertyChanged("la1_trans_amount")
-				Me.Onla1_trans_amountChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la1_trans_rate", DbType:="Decimal(18,2)")>  _
-	Public Property la1_trans_rate() As System.Nullable(Of Decimal)
-		Get
-			Return Me._la1_trans_rate
-		End Get
-		Set
-			If (Me._la1_trans_rate.Equals(value) = false) Then
-				Me.Onla1_trans_rateChanging(value)
-				Me.SendPropertyChanging
-				Me._la1_trans_rate = value
-				Me.SendPropertyChanged("la1_trans_rate")
-				Me.Onla1_trans_rateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_booking_by", DbType:="VarBinary(50)", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property booking_by() As System.Data.Linq.Binary
-		Get
-			Return Me._booking_by
-		End Get
-		Set
-			If (Object.Equals(Me._booking_by, value) = false) Then
-				Me.Onbooking_byChanging(value)
-				Me.SendPropertyChanging
-				Me._booking_by = value
-				Me.SendPropertyChanged("booking_by")
-				Me.Onbooking_byChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_runningNo", DbType:="Int")>  _
-	Public Property runningNo() As System.Nullable(Of Integer)
-		Get
-			Return Me._runningNo
-		End Get
-		Set
-			If (Me._runningNo.Equals(value) = false) Then
-				Me.OnrunningNoChanging(value)
-				Me.SendPropertyChanging
-				Me._runningNo = value
-				Me.SendPropertyChanged("runningNo")
-				Me.OnrunningNoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="loan_account1_loan_acc1_transaction", Storage:="_loan_account1", ThisKey:="lmem1_id", OtherKey:="lmem1_id", IsForeignKey:=true)>  _
-	Public Property loan_account1() As loan_account1
-		Get
-			Return Me._loan_account1.Entity
-		End Get
-		Set
-			Dim previousValue As loan_account1 = Me._loan_account1.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._loan_account1.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._loan_account1.Entity = Nothing
-					previousValue.loan_acc1_transactions.Remove(Me)
-				End If
-				Me._loan_account1.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.loan_acc1_transactions.Add(Me)
-					Me._lmem1_id = value.lmem1_id
-				Else
-					Me._lmem1_id = CType(Nothing, String)
-				End If
-				Me.SendPropertyChanged("loan_account1")
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.loan_member_acc2")>  _
 Partial Public Class loan_member_acc2
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -3218,234 +2991,6 @@ Partial Public Class loan_account2
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.loan_acc2_transaction")>  _
-Partial Public Class loan_acc2_transaction
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _la2_trans_id As Integer
-	
-	Private _lmem2_id As String
-	
-	Private _la2_trans_timestamp As System.Nullable(Of Date)
-	
-	Private _la2_trans_amount As System.Nullable(Of Decimal)
-	
-	Private _la1_trans_rate As System.Nullable(Of Decimal)
-	
-	Private _booking_by As String
-	
-	Private _runningNo As System.Nullable(Of Integer)
-	
-	Private _loan_account2 As EntityRef(Of loan_account2)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub Onla2_trans_idChanging(value As Integer)
-    End Sub
-    Partial Private Sub Onla2_trans_idChanged()
-    End Sub
-    Partial Private Sub Onlmem2_idChanging(value As String)
-    End Sub
-    Partial Private Sub Onlmem2_idChanged()
-    End Sub
-    Partial Private Sub Onla2_trans_timestampChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub Onla2_trans_timestampChanged()
-    End Sub
-    Partial Private Sub Onla2_trans_amountChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub Onla2_trans_amountChanged()
-    End Sub
-    Partial Private Sub Onla1_trans_rateChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub Onla1_trans_rateChanged()
-    End Sub
-    Partial Private Sub Onbooking_byChanging(value As String)
-    End Sub
-    Partial Private Sub Onbooking_byChanged()
-    End Sub
-    Partial Private Sub OnrunningNoChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnrunningNoChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._loan_account2 = CType(Nothing, EntityRef(Of loan_account2))
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la2_trans_id", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
-	Public Property la2_trans_id() As Integer
-		Get
-			Return Me._la2_trans_id
-		End Get
-		Set
-			If ((Me._la2_trans_id = value)  _
-						= false) Then
-				Me.Onla2_trans_idChanging(value)
-				Me.SendPropertyChanging
-				Me._la2_trans_id = value
-				Me.SendPropertyChanged("la2_trans_id")
-				Me.Onla2_trans_idChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_lmem2_id", DbType:="VarChar(50)")>  _
-	Public Property lmem2_id() As String
-		Get
-			Return Me._lmem2_id
-		End Get
-		Set
-			If (String.Equals(Me._lmem2_id, value) = false) Then
-				If Me._loan_account2.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.Onlmem2_idChanging(value)
-				Me.SendPropertyChanging
-				Me._lmem2_id = value
-				Me.SendPropertyChanged("lmem2_id")
-				Me.Onlmem2_idChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la2_trans_timestamp", DbType:="DateTime")>  _
-	Public Property la2_trans_timestamp() As System.Nullable(Of Date)
-		Get
-			Return Me._la2_trans_timestamp
-		End Get
-		Set
-			If (Me._la2_trans_timestamp.Equals(value) = false) Then
-				Me.Onla2_trans_timestampChanging(value)
-				Me.SendPropertyChanging
-				Me._la2_trans_timestamp = value
-				Me.SendPropertyChanged("la2_trans_timestamp")
-				Me.Onla2_trans_timestampChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la2_trans_amount", DbType:="Decimal(18,2)")>  _
-	Public Property la2_trans_amount() As System.Nullable(Of Decimal)
-		Get
-			Return Me._la2_trans_amount
-		End Get
-		Set
-			If (Me._la2_trans_amount.Equals(value) = false) Then
-				Me.Onla2_trans_amountChanging(value)
-				Me.SendPropertyChanging
-				Me._la2_trans_amount = value
-				Me.SendPropertyChanged("la2_trans_amount")
-				Me.Onla2_trans_amountChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la1_trans_rate", DbType:="Decimal(18,2)")>  _
-	Public Property la1_trans_rate() As System.Nullable(Of Decimal)
-		Get
-			Return Me._la1_trans_rate
-		End Get
-		Set
-			If (Me._la1_trans_rate.Equals(value) = false) Then
-				Me.Onla1_trans_rateChanging(value)
-				Me.SendPropertyChanging
-				Me._la1_trans_rate = value
-				Me.SendPropertyChanged("la1_trans_rate")
-				Me.Onla1_trans_rateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_booking_by", DbType:="VarChar(50)")>  _
-	Public Property booking_by() As String
-		Get
-			Return Me._booking_by
-		End Get
-		Set
-			If (String.Equals(Me._booking_by, value) = false) Then
-				Me.Onbooking_byChanging(value)
-				Me.SendPropertyChanging
-				Me._booking_by = value
-				Me.SendPropertyChanged("booking_by")
-				Me.Onbooking_byChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_runningNo", DbType:="Int")>  _
-	Public Property runningNo() As System.Nullable(Of Integer)
-		Get
-			Return Me._runningNo
-		End Get
-		Set
-			If (Me._runningNo.Equals(value) = false) Then
-				Me.OnrunningNoChanging(value)
-				Me.SendPropertyChanging
-				Me._runningNo = value
-				Me.SendPropertyChanged("runningNo")
-				Me.OnrunningNoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="loan_account2_loan_acc2_transaction", Storage:="_loan_account2", ThisKey:="lmem2_id", OtherKey:="lmem2_id", IsForeignKey:=true)>  _
-	Public Property loan_account2() As loan_account2
-		Get
-			Return Me._loan_account2.Entity
-		End Get
-		Set
-			Dim previousValue As loan_account2 = Me._loan_account2.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._loan_account2.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._loan_account2.Entity = Nothing
-					previousValue.loan_acc2_transactions.Remove(Me)
-				End If
-				Me._loan_account2.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.loan_acc2_transactions.Add(Me)
-					Me._lmem2_id = value.lmem2_id
-				Else
-					Me._lmem2_id = CType(Nothing, String)
-				End If
-				Me.SendPropertyChanged("loan_account2")
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.depo_transaction")>  _
 Partial Public Class depo_transaction
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -3650,6 +3195,504 @@ Partial Public Class depo_transaction
 					Me._mem_id = CType(Nothing, String)
 				End If
 				Me.SendPropertyChanged("deposit_account")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.loan_acc1_transaction")>  _
+Partial Public Class loan_acc1_transaction
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _la1_trans_id As String
+	
+	Private _lmem1_id As String
+	
+	Private _la1_trans_timestamp As System.Nullable(Of Date)
+	
+	Private _la1_trans_amount As System.Nullable(Of Decimal)
+	
+	Private _la1_trans_rate As System.Nullable(Of Decimal)
+	
+	Private _la1_trans_balance As System.Nullable(Of Decimal)
+	
+	Private _booking_by As String
+	
+	Private _runningNo As System.Nullable(Of Integer)
+	
+	Private _loan_account1 As EntityRef(Of loan_account1)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub Onla1_trans_idChanging(value As String)
+    End Sub
+    Partial Private Sub Onla1_trans_idChanged()
+    End Sub
+    Partial Private Sub Onlmem1_idChanging(value As String)
+    End Sub
+    Partial Private Sub Onlmem1_idChanged()
+    End Sub
+    Partial Private Sub Onla1_trans_timestampChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub Onla1_trans_timestampChanged()
+    End Sub
+    Partial Private Sub Onla1_trans_amountChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub Onla1_trans_amountChanged()
+    End Sub
+    Partial Private Sub Onla1_trans_rateChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub Onla1_trans_rateChanged()
+    End Sub
+    Partial Private Sub Onla1_trans_balanceChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub Onla1_trans_balanceChanged()
+    End Sub
+    Partial Private Sub Onbooking_byChanging(value As String)
+    End Sub
+    Partial Private Sub Onbooking_byChanged()
+    End Sub
+    Partial Private Sub OnrunningNoChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnrunningNoChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._loan_account1 = CType(Nothing, EntityRef(Of loan_account1))
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la1_trans_id", DbType:="VarChar(50) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property la1_trans_id() As String
+		Get
+			Return Me._la1_trans_id
+		End Get
+		Set
+			If (String.Equals(Me._la1_trans_id, value) = false) Then
+				Me.Onla1_trans_idChanging(value)
+				Me.SendPropertyChanging
+				Me._la1_trans_id = value
+				Me.SendPropertyChanged("la1_trans_id")
+				Me.Onla1_trans_idChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_lmem1_id", DbType:="VarChar(50)")>  _
+	Public Property lmem1_id() As String
+		Get
+			Return Me._lmem1_id
+		End Get
+		Set
+			If (String.Equals(Me._lmem1_id, value) = false) Then
+				If Me._loan_account1.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.Onlmem1_idChanging(value)
+				Me.SendPropertyChanging
+				Me._lmem1_id = value
+				Me.SendPropertyChanged("lmem1_id")
+				Me.Onlmem1_idChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la1_trans_timestamp", DbType:="DateTime")>  _
+	Public Property la1_trans_timestamp() As System.Nullable(Of Date)
+		Get
+			Return Me._la1_trans_timestamp
+		End Get
+		Set
+			If (Me._la1_trans_timestamp.Equals(value) = false) Then
+				Me.Onla1_trans_timestampChanging(value)
+				Me.SendPropertyChanging
+				Me._la1_trans_timestamp = value
+				Me.SendPropertyChanged("la1_trans_timestamp")
+				Me.Onla1_trans_timestampChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la1_trans_amount", DbType:="Decimal(18,2)")>  _
+	Public Property la1_trans_amount() As System.Nullable(Of Decimal)
+		Get
+			Return Me._la1_trans_amount
+		End Get
+		Set
+			If (Me._la1_trans_amount.Equals(value) = false) Then
+				Me.Onla1_trans_amountChanging(value)
+				Me.SendPropertyChanging
+				Me._la1_trans_amount = value
+				Me.SendPropertyChanged("la1_trans_amount")
+				Me.Onla1_trans_amountChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la1_trans_rate", DbType:="Decimal(18,2)")>  _
+	Public Property la1_trans_rate() As System.Nullable(Of Decimal)
+		Get
+			Return Me._la1_trans_rate
+		End Get
+		Set
+			If (Me._la1_trans_rate.Equals(value) = false) Then
+				Me.Onla1_trans_rateChanging(value)
+				Me.SendPropertyChanging
+				Me._la1_trans_rate = value
+				Me.SendPropertyChanged("la1_trans_rate")
+				Me.Onla1_trans_rateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la1_trans_balance", DbType:="Decimal(18,2)")>  _
+	Public Property la1_trans_balance() As System.Nullable(Of Decimal)
+		Get
+			Return Me._la1_trans_balance
+		End Get
+		Set
+			If (Me._la1_trans_balance.Equals(value) = false) Then
+				Me.Onla1_trans_balanceChanging(value)
+				Me.SendPropertyChanging
+				Me._la1_trans_balance = value
+				Me.SendPropertyChanged("la1_trans_balance")
+				Me.Onla1_trans_balanceChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_booking_by", DbType:="VarChar(50)")>  _
+	Public Property booking_by() As String
+		Get
+			Return Me._booking_by
+		End Get
+		Set
+			If (String.Equals(Me._booking_by, value) = false) Then
+				Me.Onbooking_byChanging(value)
+				Me.SendPropertyChanging
+				Me._booking_by = value
+				Me.SendPropertyChanged("booking_by")
+				Me.Onbooking_byChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_runningNo", DbType:="Int")>  _
+	Public Property runningNo() As System.Nullable(Of Integer)
+		Get
+			Return Me._runningNo
+		End Get
+		Set
+			If (Me._runningNo.Equals(value) = false) Then
+				Me.OnrunningNoChanging(value)
+				Me.SendPropertyChanging
+				Me._runningNo = value
+				Me.SendPropertyChanged("runningNo")
+				Me.OnrunningNoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="loan_account1_loan_acc1_transaction", Storage:="_loan_account1", ThisKey:="lmem1_id", OtherKey:="lmem1_id", IsForeignKey:=true)>  _
+	Public Property loan_account1() As loan_account1
+		Get
+			Return Me._loan_account1.Entity
+		End Get
+		Set
+			Dim previousValue As loan_account1 = Me._loan_account1.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._loan_account1.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._loan_account1.Entity = Nothing
+					previousValue.loan_acc1_transactions.Remove(Me)
+				End If
+				Me._loan_account1.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.loan_acc1_transactions.Add(Me)
+					Me._lmem1_id = value.lmem1_id
+				Else
+					Me._lmem1_id = CType(Nothing, String)
+				End If
+				Me.SendPropertyChanged("loan_account1")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.loan_acc2_transaction")>  _
+Partial Public Class loan_acc2_transaction
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _la2_trans_id As String
+	
+	Private _lmem2_id As String
+	
+	Private _la2_trans_timestamp As System.Nullable(Of Date)
+	
+	Private _la2_trans_amount As System.Nullable(Of Decimal)
+	
+	Private _la2_trans_rate As System.Nullable(Of Decimal)
+	
+	Private _la2_trans_balance As System.Nullable(Of Decimal)
+	
+	Private _booking_by As String
+	
+	Private _runningNo As System.Nullable(Of Integer)
+	
+	Private _loan_account2 As EntityRef(Of loan_account2)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub Onla2_trans_idChanging(value As String)
+    End Sub
+    Partial Private Sub Onla2_trans_idChanged()
+    End Sub
+    Partial Private Sub Onlmem2_idChanging(value As String)
+    End Sub
+    Partial Private Sub Onlmem2_idChanged()
+    End Sub
+    Partial Private Sub Onla2_trans_timestampChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub Onla2_trans_timestampChanged()
+    End Sub
+    Partial Private Sub Onla2_trans_amountChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub Onla2_trans_amountChanged()
+    End Sub
+    Partial Private Sub Onla2_trans_rateChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub Onla2_trans_rateChanged()
+    End Sub
+    Partial Private Sub Onla2_trans_balanceChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub Onla2_trans_balanceChanged()
+    End Sub
+    Partial Private Sub Onbooking_byChanging(value As String)
+    End Sub
+    Partial Private Sub Onbooking_byChanged()
+    End Sub
+    Partial Private Sub OnrunningNoChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnrunningNoChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._loan_account2 = CType(Nothing, EntityRef(Of loan_account2))
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la2_trans_id", DbType:="VarChar(50) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property la2_trans_id() As String
+		Get
+			Return Me._la2_trans_id
+		End Get
+		Set
+			If (String.Equals(Me._la2_trans_id, value) = false) Then
+				Me.Onla2_trans_idChanging(value)
+				Me.SendPropertyChanging
+				Me._la2_trans_id = value
+				Me.SendPropertyChanged("la2_trans_id")
+				Me.Onla2_trans_idChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_lmem2_id", DbType:="VarChar(50)")>  _
+	Public Property lmem2_id() As String
+		Get
+			Return Me._lmem2_id
+		End Get
+		Set
+			If (String.Equals(Me._lmem2_id, value) = false) Then
+				If Me._loan_account2.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.Onlmem2_idChanging(value)
+				Me.SendPropertyChanging
+				Me._lmem2_id = value
+				Me.SendPropertyChanged("lmem2_id")
+				Me.Onlmem2_idChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la2_trans_timestamp", DbType:="DateTime")>  _
+	Public Property la2_trans_timestamp() As System.Nullable(Of Date)
+		Get
+			Return Me._la2_trans_timestamp
+		End Get
+		Set
+			If (Me._la2_trans_timestamp.Equals(value) = false) Then
+				Me.Onla2_trans_timestampChanging(value)
+				Me.SendPropertyChanging
+				Me._la2_trans_timestamp = value
+				Me.SendPropertyChanged("la2_trans_timestamp")
+				Me.Onla2_trans_timestampChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la2_trans_amount", DbType:="Decimal(18,2)")>  _
+	Public Property la2_trans_amount() As System.Nullable(Of Decimal)
+		Get
+			Return Me._la2_trans_amount
+		End Get
+		Set
+			If (Me._la2_trans_amount.Equals(value) = false) Then
+				Me.Onla2_trans_amountChanging(value)
+				Me.SendPropertyChanging
+				Me._la2_trans_amount = value
+				Me.SendPropertyChanged("la2_trans_amount")
+				Me.Onla2_trans_amountChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la2_trans_rate", DbType:="Decimal(18,2)")>  _
+	Public Property la2_trans_rate() As System.Nullable(Of Decimal)
+		Get
+			Return Me._la2_trans_rate
+		End Get
+		Set
+			If (Me._la2_trans_rate.Equals(value) = false) Then
+				Me.Onla2_trans_rateChanging(value)
+				Me.SendPropertyChanging
+				Me._la2_trans_rate = value
+				Me.SendPropertyChanged("la2_trans_rate")
+				Me.Onla2_trans_rateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_la2_trans_balance", DbType:="Decimal(18,2)")>  _
+	Public Property la2_trans_balance() As System.Nullable(Of Decimal)
+		Get
+			Return Me._la2_trans_balance
+		End Get
+		Set
+			If (Me._la2_trans_balance.Equals(value) = false) Then
+				Me.Onla2_trans_balanceChanging(value)
+				Me.SendPropertyChanging
+				Me._la2_trans_balance = value
+				Me.SendPropertyChanged("la2_trans_balance")
+				Me.Onla2_trans_balanceChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_booking_by", DbType:="VarChar(50)")>  _
+	Public Property booking_by() As String
+		Get
+			Return Me._booking_by
+		End Get
+		Set
+			If (String.Equals(Me._booking_by, value) = false) Then
+				Me.Onbooking_byChanging(value)
+				Me.SendPropertyChanging
+				Me._booking_by = value
+				Me.SendPropertyChanged("booking_by")
+				Me.Onbooking_byChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_runningNo", DbType:="Int")>  _
+	Public Property runningNo() As System.Nullable(Of Integer)
+		Get
+			Return Me._runningNo
+		End Get
+		Set
+			If (Me._runningNo.Equals(value) = false) Then
+				Me.OnrunningNoChanging(value)
+				Me.SendPropertyChanging
+				Me._runningNo = value
+				Me.SendPropertyChanged("runningNo")
+				Me.OnrunningNoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="loan_account2_loan_acc2_transaction", Storage:="_loan_account2", ThisKey:="lmem2_id", OtherKey:="lmem2_id", IsForeignKey:=true)>  _
+	Public Property loan_account2() As loan_account2
+		Get
+			Return Me._loan_account2.Entity
+		End Get
+		Set
+			Dim previousValue As loan_account2 = Me._loan_account2.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._loan_account2.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._loan_account2.Entity = Nothing
+					previousValue.loan_acc2_transactions.Remove(Me)
+				End If
+				Me._loan_account2.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.loan_acc2_transactions.Add(Me)
+					Me._lmem2_id = value.lmem2_id
+				Else
+					Me._lmem2_id = CType(Nothing, String)
+				End If
+				Me.SendPropertyChanged("loan_account2")
 			End If
 		End Set
 	End Property

@@ -11,23 +11,23 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AllLoan1
+Partial Public Class Report
 
     '''<summary>
-    '''ASPxGridView1 control.
+    '''ReportViewer1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ASPxGridView1 As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+    Protected WithEvents ReportViewer1 As Global.Microsoft.Reporting.WebForms.ReportViewer
 
     '''<summary>
-    '''sds_loan_acc1 control.
+    '''sds_report control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents sds_loan_acc1 As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents sds_report As Global.System.Web.UI.WebControls.SqlDataSource
 End Class
